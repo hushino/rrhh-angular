@@ -1,93 +1,93 @@
 entity Persona {
-	nombre String required 
-    apellido String required
-    cuil String required
-    dni Integer required
-    legajo Integer required
-	apodo String
-    foto ImageBlob
-	soltero String
-	casado String
-	conviviente String 
-	viudo String
-	domicilio String
-	lugar String
-	calle String
-	numero String
-	telefonofijo String
-	numerodecelular String
-	oficioprofecion String
-	niveldeestudios String
-gruposanguineo String
-factor String
-donante String
-diabetes String
-hipertension String
-alergias String
-asma String
-otros String
-fechadeingreso LocalDate
-instrumentolegal String
-categoria String
-item String
-planta String
-area String
-direccion String
-annos Integer
-meses Integer
-dias Integer
-realizocomputodeservicios String
-poseeconocimientoenmaquinasviales String
-casoemergenciacelular String
-casoemergenciafijo String
-casoemergencianombre String
-casoemergenciacelular2 String
-casoemergenciafijo2 String
-casoemergencianombre2 String
-familiaracargonombre String
-familiaracargonombre2 String
-familiaracargonombre3 String
-familiaracargonombre4 String
-familiaracargonombre5 String
-familiaracargodni String
-familiaracargodni2 String
-familiaracargodni3 String
-familiaracargodni4 String
-familiaracargodni5 String
-familiaracargoedad String
-familiaracargoedad2 String
-familiaracargoedad3 String
-familiaracargoedad4 String
-familiaracargoedad5 String
-altura String
-barrio String
-estudiosincompletos String
-conyugeapellido String
-conyugenombre String
-conyugedni Integer
-conyugecuil String
-grupofamiliarapellidonombre String
-grupofamiliarapellidonombre2 String
-grupofamiliarapellidonombre3 String
-grupofamiliarapellidonombre4 String
-grupofamiliarapellidonombre5 String
-grupofamiliarapellidonombre6 String
-grupofamiliarapellidonombre7 String
-grupofamiliarapellidonombre8 String
-grupofamiliarapellidonombre9 String
-grupofamiliarapellidonombre10 String
-grupofamiliarapellidonombre11 String
-grupofamiliarapellidonombreedad String
-grupofamiliarapellidonombreedad2 String
-grupofamiliarapellidonombreedad3 String
-grupofamiliarapellidonombreedad4 String
-grupofamiliarapellidonombreedad5 String
-grupofamiliarapellidonombreedad6 String
-grupofamiliarapellidonombreedad7 String
-grupofamiliarapellidonombreedad8 String
-grupofamiliarapellidonombreedad9 String
-grupofamiliarapellidonombreedad10 String
-grupofamiliarapellidonombreedad11 String
+	nombre String required maxlength(50)
+    apellido String required maxlength(50)
+    cuil String required  maxlength(50)
+    dni Integer required  maxlength(50)
+    legajo Integer required  maxlength(50)
+	apodo String  maxlength(50)
+    foto ImageBlob  maxlength(50)
+	soltero String  maxlength(50)
+	casado String  maxlength(50)
+	conviviente String   maxlength(50)
+	viudo String  maxlength(50)
+	domicilio String  maxlength(50)
+	lugar String  maxlength(50)
+	calle String  maxlength(50)
+	numero String  maxlength(50)
+	telefonofijo String  maxlength(50)
+	numerodecelular String  maxlength(50)
+	oficioprofecion String  maxlength(50)
+	niveldeestudios String  maxlength(50)
+gruposanguineo String  maxlength(50)
+factor String  maxlength(50)
+donante String  maxlength(50)
+diabetes String  maxlength(50)
+hipertension String maxlength(50)
+alergias String  maxlength(50)
+asma String  maxlength(50)
+otros String  maxlength(50)
+fechadeingreso LocalDate 
+instrumentolegal String  maxlength(50)
+categoria String  maxlength(50)
+item String  maxlength(50) 
+planta String  maxlength(50)
+area String  maxlength(50)
+direccion String  maxlength(50)
+annos Integer  maxlength(50)
+meses Integer  maxlength(50)
+dias Integer  maxlength(50)
+realizocomputodeservicios String  maxlength(50)
+poseeconocimientoenmaquinasviales String  maxlength(50)
+casoemergenciacelular String  maxlength(50)
+casoemergenciafijo String  maxlength(50)
+casoemergencianombre String  maxlength(50)
+casoemergenciacelular2 String  maxlength(50)
+casoemergenciafijo2 String  maxlength(50)
+casoemergencianombre2 String  maxlength(50)
+familiaracargonombre String  maxlength(50)
+familiaracargonombre2 String  maxlength(50)
+familiaracargonombre3 String  maxlength(50)
+familiaracargonombre4 String  maxlength(50)
+familiaracargonombre5 String  maxlength(50)
+familiaracargodni String  maxlength(50)
+familiaracargodni2 String  maxlength(50)
+familiaracargodni3 String  maxlength(50)
+familiaracargodni4 String  maxlength(50)
+familiaracargodni5 String  maxlength(50)
+familiaracargoedad String  maxlength(50)
+familiaracargoedad2 String  maxlength(50)
+familiaracargoedad3 String  maxlength(50)
+familiaracargoedad4 String  maxlength(50)
+familiaracargoedad5 String  maxlength(50)
+altura String  maxlength(50)
+barrio String  maxlength(50)
+estudiosincompletos String  maxlength(50)
+conyugeapellido String  maxlength(50)
+conyugenombre String  maxlength(50)
+conyugedni Integer  maxlength(50)
+conyugecuil String  maxlength(50)
+grupofamiliarapellidonombre String  maxlength(50)
+grupofamiliarapellidonombre2 String  maxlength(50)
+grupofamiliarapellidonombre3 String  maxlength(50)
+grupofamiliarapellidonombre4 String  maxlength(50)
+grupofamiliarapellidonombre5 String  maxlength(50)
+grupofamiliarapellidonombre6 String  maxlength(50)
+grupofamiliarapellidonombre7 String  maxlength(50)
+grupofamiliarapellidonombre8 String  maxlength(50)
+grupofamiliarapellidonombre9 String  maxlength(50)
+grupofamiliarapellidonombre10 String  maxlength(50)
+grupofamiliarapellidonombre11 String  maxlength(50)
+grupofamiliarapellidonombreedad String  maxlength(50) 
+grupofamiliarapellidonombreedad2 String maxlength(50) 
+grupofamiliarapellidonombreedad3 String maxlength(50)
+grupofamiliarapellidonombreedad4 String  maxlength(50)
+grupofamiliarapellidonombreedad5 String  maxlength(50)
+grupofamiliarapellidonombreedad6 String maxlength(50)
+grupofamiliarapellidonombreedad7 String maxlength(50)
+grupofamiliarapellidonombreedad8 String maxlength(50)
+grupofamiliarapellidonombreedad9 String maxlength(50)
+grupofamiliarapellidonombreedad10 String maxlength(50)
+grupofamiliarapellidonombreedad11 String maxlength(50)
 	grupofamiliarapellidonombredni Integer
 	grupofamiliarapellidonombredni2 Integer
 	grupofamiliarapellidonombredni3 Integer
@@ -99,17 +99,17 @@ grupofamiliarapellidonombreedad11 String
 	grupofamiliarapellidonombredni9 Integer 
 	grupofamiliarapellidonombredni10 Integer
 	grupofamiliarapellidonombredni11 Integer
-	grupofamiliarapellidonombrefamiliar String
-	grupofamiliarapellidonombrefamiliar2 String
-	grupofamiliarapellidonombrefamiliar4 String
-	grupofamiliarapellidonombrefamiliar3 String
-	grupofamiliarapellidonombrefamiliar5 String
-	grupofamiliarapellidonombrefamiliar6 String
-	grupofamiliarapellidonombrefamiliar7 String
-	grupofamiliarapellidonombrefamiliar8 String
-	grupofamiliarapellidonombrefamiliar9 String
-	grupofamiliarapellidonombrefamiliar10 String
-	grupofamiliarapellidonombrefamiliar11 String
+	grupofamiliarapellidonombrefamiliar String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar2 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar4 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar3 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar5 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar6 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar7 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar8 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar9 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar10 String  maxlength(50)
+	grupofamiliarapellidonombrefamiliar11 String  maxlength(50)
 	
 
 
