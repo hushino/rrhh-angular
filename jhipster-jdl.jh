@@ -2,10 +2,10 @@ entity Persona {
 	nombre String required maxlength(50)
     apellido String required maxlength(50)
     cuil String required  maxlength(50)
-    dni Integer required  maxlength(50)
-    legajo Integer required  maxlength(50)
+    dni Integer required
+    legajo Integer required
 	apodo String  maxlength(50)
-    foto ImageBlob  maxlength(50)
+    foto ImageBlob 
 	soltero String  maxlength(50)
 	casado String  maxlength(50)
 	conviviente String   maxlength(50)
@@ -33,9 +33,9 @@ item String  maxlength(50)
 planta String  maxlength(50)
 area String  maxlength(50)
 direccion String  maxlength(50)
-annos Integer  maxlength(50)
-meses Integer  maxlength(50)
-dias Integer  maxlength(50)
+annos Integer  
+meses Integer
+dias Integer  
 realizocomputodeservicios String  maxlength(50)
 poseeconocimientoenmaquinasviales String  maxlength(50)
 casoemergenciacelular String  maxlength(50)
@@ -64,7 +64,7 @@ barrio String  maxlength(50)
 estudiosincompletos String  maxlength(50)
 conyugeapellido String  maxlength(50)
 conyugenombre String  maxlength(50)
-conyugedni Integer  maxlength(50)
+conyugedni Integer
 conyugecuil String  maxlength(50)
 grupofamiliarapellidonombre String  maxlength(50)
 grupofamiliarapellidonombre2 String  maxlength(50)
@@ -171,6 +171,7 @@ entity Concpremios{
 	fecha LocalDate
 	referencias String
 }
+
 paginate Persona with pagination
 paginate Licencia with pagination
 paginate Concpremios with pagination

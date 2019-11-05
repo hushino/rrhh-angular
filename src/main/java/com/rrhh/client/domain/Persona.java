@@ -22,25 +22,29 @@ public class Persona implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "nombre", nullable = false)
+    @Size(max = 50)
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
     @NotNull
-    @Column(name = "apellido", nullable = false)
+    @Size(max = 50)
+    @Column(name = "apellido", length = 50, nullable = false)
     private String apellido;
 
     @NotNull
-    @Column(name = "cuil", nullable = false, length = 50)
+    @Size(max = 50)
+    @Column(name = "cuil", length = 50, nullable = false)
     private String cuil;
 
     @NotNull
-    @Column(name = "dni", nullable = false, length = 50)
+    @Column(name = "dni", nullable = false)
     private Integer dni;
 
     @NotNull
     @Column(name = "legajo", nullable = false)
     private Integer legajo;
 
+    @Size(max = 50)
     @Column(name = "apodo", length = 50)
     private String apodo;
 
@@ -51,315 +55,403 @@ public class Persona implements Serializable {
     @Column(name = "foto_content_type")
     private String fotoContentType;
 
+    @Size(max = 50)
     @Column(name = "soltero", length = 50)
     private String soltero;
 
+    @Size(max = 50)
     @Column(name = "casado", length = 50)
     private String casado;
 
+    @Size(max = 50)
     @Column(name = "conviviente", length = 50)
     private String conviviente;
 
+    @Size(max = 50)
     @Column(name = "viudo", length = 50)
     private String viudo;
 
+    @Size(max = 50)
     @Column(name = "domicilio", length = 50)
     private String domicilio;
 
+    @Size(max = 50)
     @Column(name = "lugar", length = 50)
     private String lugar;
 
+    @Size(max = 50)
     @Column(name = "calle", length = 50)
     private String calle;
 
+    @Size(max = 50)
     @Column(name = "numero", length = 50)
     private String numero;
 
+    @Size(max = 50)
     @Column(name = "telefonofijo", length = 50)
     private String telefonofijo;
 
+    @Size(max = 50)
     @Column(name = "numerodecelular", length = 50)
     private String numerodecelular;
 
+    @Size(max = 50)
     @Column(name = "oficioprofecion", length = 50)
     private String oficioprofecion;
 
+    @Size(max = 50)
     @Column(name = "niveldeestudios", length = 50)
     private String niveldeestudios;
 
+    @Size(max = 50)
     @Column(name = "gruposanguineo", length = 50)
     private String gruposanguineo;
 
-    @Column(name = "factor", length = 10)
+    @Size(max = 50)
+    @Column(name = "factor", length = 50)
     private String factor;
 
-    @Column(name = "donante", length = 10)
+    @Size(max = 50)
+    @Column(name = "donante", length = 50)
     private String donante;
 
-    @Column(name = "diabetes", length = 10)
+    @Size(max = 50)
+    @Column(name = "diabetes", length = 50)
     private String diabetes;
 
-    @Column(name = "hipertension", length = 10)
+    @Size(max = 50)
+    @Column(name = "hipertension", length = 50)
     private String hipertension;
 
-    @Column(name = "alergias")
+    @Size(max = 50)
+    @Column(name = "alergias", length = 50)
     private String alergias;
 
+    @Size(max = 50)
     @Column(name = "asma", length = 50)
     private String asma;
 
-    @Column(name = "otros")
+    @Size(max = 50)
+    @Column(name = "otros", length = 50)
     private String otros;
 
-    @Column(name = "fechadeingreso", length = 50)
+    @Column(name = "fechadeingreso")
     private LocalDate fechadeingreso;
 
+    @Size(max = 50)
     @Column(name = "instrumentolegal", length = 50)
     private String instrumentolegal;
 
+    @Size(max = 50)
     @Column(name = "categoria", length = 50)
     private String categoria;
 
+    @Size(max = 50)
     @Column(name = "item", length = 50)
     private String item;
 
+    @Size(max = 50)
     @Column(name = "planta", length = 50)
     private String planta;
 
+    @Size(max = 50)
     @Column(name = "area", length = 50)
     private String area;
 
-    @Column(name = "direccion", length = 150)
+    @Size(max = 50)
+    @Column(name = "direccion", length = 50)
     private String direccion;
 
-    @Column(name = "annos", length = 10)
+    @Column(name = "annos")
     private Integer annos;
 
-    @Column(name = "meses", length = 10)
+    @Column(name = "meses")
     private Integer meses;
 
-    @Column(name = "dias", length = 50)
+    @Column(name = "dias")
     private Integer dias;
 
+    @Size(max = 50)
     @Column(name = "realizocomputodeservicios", length = 50)
     private String realizocomputodeservicios;
 
+    @Size(max = 50)
     @Column(name = "poseeconocimientoenmaquinasviales", length = 50)
     private String poseeconocimientoenmaquinasviales;
 
+    @Size(max = 50)
     @Column(name = "casoemergenciacelular", length = 50)
     private String casoemergenciacelular;
 
+    @Size(max = 50)
     @Column(name = "casoemergenciafijo", length = 50)
     private String casoemergenciafijo;
 
+    @Size(max = 50)
     @Column(name = "casoemergencianombre", length = 50)
     private String casoemergencianombre;
 
+    @Size(max = 50)
     @Column(name = "casoemergenciacelular_2", length = 50)
     private String casoemergenciacelular2;
 
+    @Size(max = 50)
     @Column(name = "casoemergenciafijo_2", length = 50)
     private String casoemergenciafijo2;
 
+    @Size(max = 50)
     @Column(name = "casoemergencianombre_2", length = 50)
     private String casoemergencianombre2;
 
+    @Size(max = 50)
     @Column(name = "familiaracargonombre", length = 50)
     private String familiaracargonombre;
 
+    @Size(max = 50)
     @Column(name = "familiaracargonombre_2", length = 50)
     private String familiaracargonombre2;
 
+    @Size(max = 50)
     @Column(name = "familiaracargonombre_3", length = 50)
     private String familiaracargonombre3;
 
+    @Size(max = 50)
     @Column(name = "familiaracargonombre_4", length = 50)
     private String familiaracargonombre4;
 
+    @Size(max = 50)
     @Column(name = "familiaracargonombre_5", length = 50)
     private String familiaracargonombre5;
 
+    @Size(max = 50)
     @Column(name = "familiaracargodni", length = 50)
     private String familiaracargodni;
 
+    @Size(max = 50)
     @Column(name = "familiaracargodni_2", length = 50)
     private String familiaracargodni2;
 
+    @Size(max = 50)
     @Column(name = "familiaracargodni_3", length = 50)
     private String familiaracargodni3;
 
+    @Size(max = 50)
     @Column(name = "familiaracargodni_4", length = 50)
     private String familiaracargodni4;
 
+    @Size(max = 50)
     @Column(name = "familiaracargodni_5", length = 50)
     private String familiaracargodni5;
 
+    @Size(max = 50)
     @Column(name = "familiaracargoedad", length = 50)
     private String familiaracargoedad;
 
+    @Size(max = 50)
     @Column(name = "familiaracargoedad_2", length = 50)
     private String familiaracargoedad2;
 
+    @Size(max = 50)
     @Column(name = "familiaracargoedad_3", length = 50)
     private String familiaracargoedad3;
 
+    @Size(max = 50)
     @Column(name = "familiaracargoedad_4", length = 50)
     private String familiaracargoedad4;
 
+    @Size(max = 50)
     @Column(name = "familiaracargoedad_5", length = 50)
     private String familiaracargoedad5;
 
+    @Size(max = 50)
     @Column(name = "altura", length = 50)
     private String altura;
 
+    @Size(max = 50)
     @Column(name = "barrio", length = 50)
     private String barrio;
 
+    @Size(max = 50)
     @Column(name = "estudiosincompletos", length = 50)
     private String estudiosincompletos;
 
+    @Size(max = 50)
     @Column(name = "conyugeapellido", length = 50)
     private String conyugeapellido;
 
+    @Size(max = 50)
     @Column(name = "conyugenombre", length = 50)
     private String conyugenombre;
 
-    @Column(name = "conyugedni", length = 50)
+    @Column(name = "conyugedni")
     private Integer conyugedni;
 
+    @Size(max = 50)
     @Column(name = "conyugecuil", length = 50)
     private String conyugecuil;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre", length = 50)
     private String grupofamiliarapellidonombre;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_2", length = 50)
     private String grupofamiliarapellidonombre2;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_3", length = 50)
     private String grupofamiliarapellidonombre3;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_4", length = 50)
     private String grupofamiliarapellidonombre4;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_5", length = 50)
     private String grupofamiliarapellidonombre5;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_6", length = 50)
     private String grupofamiliarapellidonombre6;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_7", length = 50)
     private String grupofamiliarapellidonombre7;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_8", length = 50)
     private String grupofamiliarapellidonombre8;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_9", length = 50)
     private String grupofamiliarapellidonombre9;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_10", length = 50)
     private String grupofamiliarapellidonombre10;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombre_11", length = 50)
     private String grupofamiliarapellidonombre11;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad", length = 50)
     private String grupofamiliarapellidonombreedad;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_2", length = 50)
     private String grupofamiliarapellidonombreedad2;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_3", length = 50)
     private String grupofamiliarapellidonombreedad3;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_4", length = 50)
     private String grupofamiliarapellidonombreedad4;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_5", length = 50)
     private String grupofamiliarapellidonombreedad5;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_6", length = 50)
     private String grupofamiliarapellidonombreedad6;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_7", length = 50)
     private String grupofamiliarapellidonombreedad7;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_8", length = 50)
     private String grupofamiliarapellidonombreedad8;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_9", length = 50)
     private String grupofamiliarapellidonombreedad9;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_10", length = 50)
     private String grupofamiliarapellidonombreedad10;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombreedad_11", length = 50)
     private String grupofamiliarapellidonombreedad11;
 
-    @Column(name = "grupofamiliarapellidonombredni", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni")
     private Integer grupofamiliarapellidonombredni;
 
-    @Column(name = "grupofamiliarapellidonombredni_2", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_2")
     private Integer grupofamiliarapellidonombredni2;
 
-    @Column(name = "grupofamiliarapellidonombredni_3", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_3")
     private Integer grupofamiliarapellidonombredni3;
 
-    @Column(name = "grupofamiliarapellidonombredni_4", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_4")
     private Integer grupofamiliarapellidonombredni4;
 
-    @Column(name = "grupofamiliarapellidonombredni_5", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_5")
     private Integer grupofamiliarapellidonombredni5;
 
-    @Column(name = "grupofamiliarapellidonombredni_6", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_6")
     private Integer grupofamiliarapellidonombredni6;
 
-    @Column(name = "grupofamiliarapellidonombredni_7", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_7")
     private Integer grupofamiliarapellidonombredni7;
 
-    @Column(name = "grupofamiliarapellidonombredni_8", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_8")
     private Integer grupofamiliarapellidonombredni8;
 
-    @Column(name = "grupofamiliarapellidonombredni_9", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_9")
     private Integer grupofamiliarapellidonombredni9;
 
-    @Column(name = "grupofamiliarapellidonombredni_10", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_10")
     private Integer grupofamiliarapellidonombredni10;
 
-    @Column(name = "grupofamiliarapellidonombredni_11", length = 50)
+    @Column(name = "grupofamiliarapellidonombredni_11")
     private Integer grupofamiliarapellidonombredni11;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar", length = 50)
     private String grupofamiliarapellidonombrefamiliar;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_2", length = 50)
     private String grupofamiliarapellidonombrefamiliar2;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_4", length = 50)
     private String grupofamiliarapellidonombrefamiliar4;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_3", length = 50)
     private String grupofamiliarapellidonombrefamiliar3;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_5", length = 50)
     private String grupofamiliarapellidonombrefamiliar5;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_6", length = 50)
     private String grupofamiliarapellidonombrefamiliar6;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_7", length = 50)
     private String grupofamiliarapellidonombrefamiliar7;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_8", length = 50)
     private String grupofamiliarapellidonombrefamiliar8;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_9", length = 50)
     private String grupofamiliarapellidonombrefamiliar9;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_10", length = 50)
     private String grupofamiliarapellidonombrefamiliar10;
 
+    @Size(max = 50)
     @Column(name = "grupofamiliarapellidonombrefamiliar_11", length = 50)
     private String grupofamiliarapellidonombrefamiliar11;
 

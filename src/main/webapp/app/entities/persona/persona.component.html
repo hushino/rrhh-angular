@@ -1,75 +1,282 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="rrhhApp.persona.home.title">Personas</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-persona"
-            [routerLink]="['/persona/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-persona" [routerLink]="['/persona/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span jhiTranslate="rrhhApp.persona.home.createLabel">
-                Create a new Persona
+            <span  jhiTranslate="rrhhApp.persona.home.createLabel">
+            Create a new Persona
             </span>
         </button>
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
-    <br />
+    <br/>
     <div class="alert alert-warning" *ngIf="personas?.length === 0">
         <span jhiTranslate="rrhhApp.persona.home.notFound">No personas found</span>
     </div>
     <div class="table-responsive" *ngIf="personas?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-                    <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th scope="col" jhiSortBy="nombre"><span jhiTranslate="rrhhApp.persona.nombre">Nombre</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th scope="col" jhiSortBy="apellido"><span jhiTranslate="rrhhApp.persona.apellido">Apellido</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th scope="col" jhiSortBy="cuil"><span jhiTranslate="rrhhApp.persona.cuil">Cuil</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th scope="col" jhiSortBy="dni"><span jhiTranslate="rrhhApp.persona.dni">Dni</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th scope="col" jhiSortBy="legajo"><span jhiTranslate="rrhhApp.persona.legajo">Legajo</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th scope="col"></th>
-                </tr>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="rrhhApp.persona.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="apellido"><span jhiTranslate="rrhhApp.persona.apellido">Apellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cuil"><span jhiTranslate="rrhhApp.persona.cuil">Cuil</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dni"><span jhiTranslate="rrhhApp.persona.dni">Dni</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="legajo"><span jhiTranslate="rrhhApp.persona.legajo">Legajo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="apodo"><span jhiTranslate="rrhhApp.persona.apodo">Apodo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="foto"><span jhiTranslate="rrhhApp.persona.foto">Foto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="soltero"><span jhiTranslate="rrhhApp.persona.soltero">Soltero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="casado"><span jhiTranslate="rrhhApp.persona.casado">Casado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="conviviente"><span jhiTranslate="rrhhApp.persona.conviviente">Conviviente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="viudo"><span jhiTranslate="rrhhApp.persona.viudo">Viudo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="domicilio"><span jhiTranslate="rrhhApp.persona.domicilio">Domicilio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="lugar"><span jhiTranslate="rrhhApp.persona.lugar">Lugar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="calle"><span jhiTranslate="rrhhApp.persona.calle">Calle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="numero"><span jhiTranslate="rrhhApp.persona.numero">Numero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="telefonofijo"><span jhiTranslate="rrhhApp.persona.telefonofijo">Telefonofijo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="numerodecelular"><span jhiTranslate="rrhhApp.persona.numerodecelular">Numerodecelular</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="oficioprofecion"><span jhiTranslate="rrhhApp.persona.oficioprofecion">Oficioprofecion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="niveldeestudios"><span jhiTranslate="rrhhApp.persona.niveldeestudios">Niveldeestudios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="gruposanguineo"><span jhiTranslate="rrhhApp.persona.gruposanguineo">Gruposanguineo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="factor"><span jhiTranslate="rrhhApp.persona.factor">Factor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="donante"><span jhiTranslate="rrhhApp.persona.donante">Donante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="diabetes"><span jhiTranslate="rrhhApp.persona.diabetes">Diabetes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="hipertension"><span jhiTranslate="rrhhApp.persona.hipertension">Hipertension</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="alergias"><span jhiTranslate="rrhhApp.persona.alergias">Alergias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="asma"><span jhiTranslate="rrhhApp.persona.asma">Asma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="otros"><span jhiTranslate="rrhhApp.persona.otros">Otros</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fechadeingreso"><span jhiTranslate="rrhhApp.persona.fechadeingreso">Fechadeingreso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="instrumentolegal"><span jhiTranslate="rrhhApp.persona.instrumentolegal">Instrumentolegal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoria"><span jhiTranslate="rrhhApp.persona.categoria">Categoria</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="item"><span jhiTranslate="rrhhApp.persona.item">Item</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="planta"><span jhiTranslate="rrhhApp.persona.planta">Planta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="area"><span jhiTranslate="rrhhApp.persona.area">Area</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="direccion"><span jhiTranslate="rrhhApp.persona.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="annos"><span jhiTranslate="rrhhApp.persona.annos">Annos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="meses"><span jhiTranslate="rrhhApp.persona.meses">Meses</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dias"><span jhiTranslate="rrhhApp.persona.dias">Dias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="realizocomputodeservicios"><span jhiTranslate="rrhhApp.persona.realizocomputodeservicios">Realizocomputodeservicios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="poseeconocimientoenmaquinasviales"><span jhiTranslate="rrhhApp.persona.poseeconocimientoenmaquinasviales">Poseeconocimientoenmaquinasviales</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="casoemergenciacelular"><span jhiTranslate="rrhhApp.persona.casoemergenciacelular">Casoemergenciacelular</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="casoemergenciafijo"><span jhiTranslate="rrhhApp.persona.casoemergenciafijo">Casoemergenciafijo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="casoemergencianombre"><span jhiTranslate="rrhhApp.persona.casoemergencianombre">Casoemergencianombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="casoemergenciacelular2"><span jhiTranslate="rrhhApp.persona.casoemergenciacelular2">Casoemergenciacelular 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="casoemergenciafijo2"><span jhiTranslate="rrhhApp.persona.casoemergenciafijo2">Casoemergenciafijo 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="casoemergencianombre2"><span jhiTranslate="rrhhApp.persona.casoemergencianombre2">Casoemergencianombre 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargonombre"><span jhiTranslate="rrhhApp.persona.familiaracargonombre">Familiaracargonombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargonombre2"><span jhiTranslate="rrhhApp.persona.familiaracargonombre2">Familiaracargonombre 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargonombre3"><span jhiTranslate="rrhhApp.persona.familiaracargonombre3">Familiaracargonombre 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargonombre4"><span jhiTranslate="rrhhApp.persona.familiaracargonombre4">Familiaracargonombre 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargonombre5"><span jhiTranslate="rrhhApp.persona.familiaracargonombre5">Familiaracargonombre 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargodni"><span jhiTranslate="rrhhApp.persona.familiaracargodni">Familiaracargodni</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargodni2"><span jhiTranslate="rrhhApp.persona.familiaracargodni2">Familiaracargodni 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargodni3"><span jhiTranslate="rrhhApp.persona.familiaracargodni3">Familiaracargodni 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargodni4"><span jhiTranslate="rrhhApp.persona.familiaracargodni4">Familiaracargodni 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargodni5"><span jhiTranslate="rrhhApp.persona.familiaracargodni5">Familiaracargodni 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargoedad"><span jhiTranslate="rrhhApp.persona.familiaracargoedad">Familiaracargoedad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargoedad2"><span jhiTranslate="rrhhApp.persona.familiaracargoedad2">Familiaracargoedad 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargoedad3"><span jhiTranslate="rrhhApp.persona.familiaracargoedad3">Familiaracargoedad 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargoedad4"><span jhiTranslate="rrhhApp.persona.familiaracargoedad4">Familiaracargoedad 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="familiaracargoedad5"><span jhiTranslate="rrhhApp.persona.familiaracargoedad5">Familiaracargoedad 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="altura"><span jhiTranslate="rrhhApp.persona.altura">Altura</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="barrio"><span jhiTranslate="rrhhApp.persona.barrio">Barrio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="estudiosincompletos"><span jhiTranslate="rrhhApp.persona.estudiosincompletos">Estudiosincompletos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="conyugeapellido"><span jhiTranslate="rrhhApp.persona.conyugeapellido">Conyugeapellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="conyugenombre"><span jhiTranslate="rrhhApp.persona.conyugenombre">Conyugenombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="conyugedni"><span jhiTranslate="rrhhApp.persona.conyugedni">Conyugedni</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="conyugecuil"><span jhiTranslate="rrhhApp.persona.conyugecuil">Conyugecuil</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre">Grupofamiliarapellidonombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre2"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre2">Grupofamiliarapellidonombre 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre3"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre3">Grupofamiliarapellidonombre 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre4"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre4">Grupofamiliarapellidonombre 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre5"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre5">Grupofamiliarapellidonombre 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre6"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre6">Grupofamiliarapellidonombre 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre7"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre7">Grupofamiliarapellidonombre 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre8"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre8">Grupofamiliarapellidonombre 8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre9"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre9">Grupofamiliarapellidonombre 9</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre10"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre10">Grupofamiliarapellidonombre 10</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombre11"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre11">Grupofamiliarapellidonombre 11</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad">Grupofamiliarapellidonombreedad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad2"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad2">Grupofamiliarapellidonombreedad 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad3"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad3">Grupofamiliarapellidonombreedad 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad4"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad4">Grupofamiliarapellidonombreedad 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad5"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad5">Grupofamiliarapellidonombreedad 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad6"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad6">Grupofamiliarapellidonombreedad 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad7"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad7">Grupofamiliarapellidonombreedad 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad8"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad8">Grupofamiliarapellidonombreedad 8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad9"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad9">Grupofamiliarapellidonombreedad 9</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad10"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad10">Grupofamiliarapellidonombreedad 10</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombreedad11"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad11">Grupofamiliarapellidonombreedad 11</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni">Grupofamiliarapellidonombredni</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni2"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni2">Grupofamiliarapellidonombredni 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni3"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni3">Grupofamiliarapellidonombredni 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni4"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni4">Grupofamiliarapellidonombredni 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni5"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni5">Grupofamiliarapellidonombredni 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni6"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni6">Grupofamiliarapellidonombredni 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni7"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni7">Grupofamiliarapellidonombredni 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni8"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni8">Grupofamiliarapellidonombredni 8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni9"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni9">Grupofamiliarapellidonombredni 9</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni10"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni10">Grupofamiliarapellidonombredni 10</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombredni11"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni11">Grupofamiliarapellidonombredni 11</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar">Grupofamiliarapellidonombrefamiliar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar2"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar2">Grupofamiliarapellidonombrefamiliar 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar4"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar4">Grupofamiliarapellidonombrefamiliar 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar3"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar3">Grupofamiliarapellidonombrefamiliar 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar5"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar5">Grupofamiliarapellidonombrefamiliar 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar6"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar6">Grupofamiliarapellidonombrefamiliar 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar7"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar7">Grupofamiliarapellidonombrefamiliar 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar8"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar8">Grupofamiliarapellidonombrefamiliar 8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar9"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar9">Grupofamiliarapellidonombrefamiliar 9</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar10"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar10">Grupofamiliarapellidonombrefamiliar 10</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="grupofamiliarapellidonombrefamiliar11"><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar11">Grupofamiliarapellidonombrefamiliar 11</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let persona of personas ;trackBy: trackId">
-                    <td><a [routerLink]="['/persona', persona.id, 'view' ]">{{persona.id}}</a></td>
-                    <td>{{persona.nombre}}</td>
-                    <td>{{persona.apellido}}</td>
-                    <td>{{persona.cuil}}</td>
-                    <td>{{persona.dni}}</td>
-                    <td>{{persona.legajo}}</td>
-
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <button type="submit" [routerLink]="['/persona', persona.id, 'view' ]"
+            <tr *ngFor="let persona of personas ;trackBy: trackId">
+                <td><a [routerLink]="['/persona', persona.id, 'view' ]">{{persona.id}}</a></td>
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.apellido}}</td>
+                <td>{{persona.cuil}}</td>
+                <td>{{persona.dni}}</td>
+                <td>{{persona.legajo}}</td>
+                <td>{{persona.apodo}}</td>
+                <td>
+                    <a *ngIf="persona.foto" (click)="openFile(persona.fotoContentType, persona.foto)">
+                        <img [src]="'data:' + persona.fotoContentType + ';base64,' + persona.foto" style="max-height: 30px;" alt="persona image"/>
+                    </a>
+                    <span *ngIf="persona.foto">{{persona.fotoContentType}}, {{byteSize(persona.foto)}}</span>
+                </td>
+                <td>{{persona.soltero}}</td>
+                <td>{{persona.casado}}</td>
+                <td>{{persona.conviviente}}</td>
+                <td>{{persona.viudo}}</td>
+                <td>{{persona.domicilio}}</td>
+                <td>{{persona.lugar}}</td>
+                <td>{{persona.calle}}</td>
+                <td>{{persona.numero}}</td>
+                <td>{{persona.telefonofijo}}</td>
+                <td>{{persona.numerodecelular}}</td>
+                <td>{{persona.oficioprofecion}}</td>
+                <td>{{persona.niveldeestudios}}</td>
+                <td>{{persona.gruposanguineo}}</td>
+                <td>{{persona.factor}}</td>
+                <td>{{persona.donante}}</td>
+                <td>{{persona.diabetes}}</td>
+                <td>{{persona.hipertension}}</td>
+                <td>{{persona.alergias}}</td>
+                <td>{{persona.asma}}</td>
+                <td>{{persona.otros}}</td>
+                <td>{{persona.fechadeingreso | date:'mediumDate'}}</td>
+                <td>{{persona.instrumentolegal}}</td>
+                <td>{{persona.categoria}}</td>
+                <td>{{persona.item}}</td>
+                <td>{{persona.planta}}</td>
+                <td>{{persona.area}}</td>
+                <td>{{persona.direccion}}</td>
+                <td>{{persona.annos}}</td>
+                <td>{{persona.meses}}</td>
+                <td>{{persona.dias}}</td>
+                <td>{{persona.realizocomputodeservicios}}</td>
+                <td>{{persona.poseeconocimientoenmaquinasviales}}</td>
+                <td>{{persona.casoemergenciacelular}}</td>
+                <td>{{persona.casoemergenciafijo}}</td>
+                <td>{{persona.casoemergencianombre}}</td>
+                <td>{{persona.casoemergenciacelular2}}</td>
+                <td>{{persona.casoemergenciafijo2}}</td>
+                <td>{{persona.casoemergencianombre2}}</td>
+                <td>{{persona.familiaracargonombre}}</td>
+                <td>{{persona.familiaracargonombre2}}</td>
+                <td>{{persona.familiaracargonombre3}}</td>
+                <td>{{persona.familiaracargonombre4}}</td>
+                <td>{{persona.familiaracargonombre5}}</td>
+                <td>{{persona.familiaracargodni}}</td>
+                <td>{{persona.familiaracargodni2}}</td>
+                <td>{{persona.familiaracargodni3}}</td>
+                <td>{{persona.familiaracargodni4}}</td>
+                <td>{{persona.familiaracargodni5}}</td>
+                <td>{{persona.familiaracargoedad}}</td>
+                <td>{{persona.familiaracargoedad2}}</td>
+                <td>{{persona.familiaracargoedad3}}</td>
+                <td>{{persona.familiaracargoedad4}}</td>
+                <td>{{persona.familiaracargoedad5}}</td>
+                <td>{{persona.altura}}</td>
+                <td>{{persona.barrio}}</td>
+                <td>{{persona.estudiosincompletos}}</td>
+                <td>{{persona.conyugeapellido}}</td>
+                <td>{{persona.conyugenombre}}</td>
+                <td>{{persona.conyugedni}}</td>
+                <td>{{persona.conyugecuil}}</td>
+                <td>{{persona.grupofamiliarapellidonombre}}</td>
+                <td>{{persona.grupofamiliarapellidonombre2}}</td>
+                <td>{{persona.grupofamiliarapellidonombre3}}</td>
+                <td>{{persona.grupofamiliarapellidonombre4}}</td>
+                <td>{{persona.grupofamiliarapellidonombre5}}</td>
+                <td>{{persona.grupofamiliarapellidonombre6}}</td>
+                <td>{{persona.grupofamiliarapellidonombre7}}</td>
+                <td>{{persona.grupofamiliarapellidonombre8}}</td>
+                <td>{{persona.grupofamiliarapellidonombre9}}</td>
+                <td>{{persona.grupofamiliarapellidonombre10}}</td>
+                <td>{{persona.grupofamiliarapellidonombre11}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad2}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad3}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad4}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad5}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad6}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad7}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad8}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad9}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad10}}</td>
+                <td>{{persona.grupofamiliarapellidonombreedad11}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni2}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni3}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni4}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni5}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni6}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni7}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni8}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni9}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni10}}</td>
+                <td>{{persona.grupofamiliarapellidonombredni11}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar2}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar4}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar3}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar5}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar6}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar7}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar8}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar9}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar10}}</td>
+                <td>{{persona.grupofamiliarapellidonombrefamiliar11}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/persona', persona.id, 'view' ]"
                                 class="btn btn-info btn-sm">
-                                <fa-icon [icon]="'eye'"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                            </button>
-                            <button type="submit" [routerLink]="['/persona', persona.id, 'edit']"
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/persona', persona.id, 'edit']"
                                 class="btn btn-primary btn-sm">
-                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                            </button>
-                            <button type="submit"
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
                                 [routerLink]="['/persona', { outlets: { popup: persona.id + '/delete'} }]"
-                                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
-                                <fa-icon [icon]="'times'"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -78,8 +285,7 @@
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
         </div>
         <div class="row justify-content-center">
-            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
-                [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
         </div>
     </div>
 </div>

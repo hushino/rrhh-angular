@@ -18,6 +18,10 @@
                                *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
                     </div>
                 </div>
                 <div class="form-group">
@@ -29,6 +33,10 @@
                                *ngIf="editForm.get('apellido').errors.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellido').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
                     </div>
                 </div>
                 <div class="form-group">
@@ -39,6 +47,10 @@
                         <small class="form-text text-danger"
                                *ngIf="editForm.get('cuil').errors.required" jhiTranslate="entity.validation.required">
                         This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cuil').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
                         </small>
                     </div>
                 </div>
@@ -76,6 +88,12 @@
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.apodo" for="field_apodo">Apodo</label>
                     <input type="text" class="form-control" name="apodo" id="field_apodo"
                            formControlName="apodo"/>
+                    <div *ngIf="editForm.get('apodo').invalid && (editForm.get('apodo').dirty || editForm.get('apodo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apodo').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.foto" for="field_foto">Foto</label>
@@ -98,111 +116,221 @@
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.soltero" for="field_soltero">Soltero</label>
                     <input type="text" class="form-control" name="soltero" id="field_soltero"
                            formControlName="soltero"/>
+                    <div *ngIf="editForm.get('soltero').invalid && (editForm.get('soltero').dirty || editForm.get('soltero').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('soltero').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.casado" for="field_casado">Casado</label>
                     <input type="text" class="form-control" name="casado" id="field_casado"
                            formControlName="casado"/>
+                    <div *ngIf="editForm.get('casado').invalid && (editForm.get('casado').dirty || editForm.get('casado').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('casado').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.conviviente" for="field_conviviente">Conviviente</label>
                     <input type="text" class="form-control" name="conviviente" id="field_conviviente"
                            formControlName="conviviente"/>
+                    <div *ngIf="editForm.get('conviviente').invalid && (editForm.get('conviviente').dirty || editForm.get('conviviente').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('conviviente').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.viudo" for="field_viudo">Viudo</label>
                     <input type="text" class="form-control" name="viudo" id="field_viudo"
                            formControlName="viudo"/>
+                    <div *ngIf="editForm.get('viudo').invalid && (editForm.get('viudo').dirty || editForm.get('viudo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('viudo').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.domicilio" for="field_domicilio">Domicilio</label>
                     <input type="text" class="form-control" name="domicilio" id="field_domicilio"
                            formControlName="domicilio"/>
+                    <div *ngIf="editForm.get('domicilio').invalid && (editForm.get('domicilio').dirty || editForm.get('domicilio').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('domicilio').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.lugar" for="field_lugar">Lugar</label>
                     <input type="text" class="form-control" name="lugar" id="field_lugar"
                            formControlName="lugar"/>
+                    <div *ngIf="editForm.get('lugar').invalid && (editForm.get('lugar').dirty || editForm.get('lugar').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lugar').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.calle" for="field_calle">Calle</label>
                     <input type="text" class="form-control" name="calle" id="field_calle"
                            formControlName="calle"/>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.altura" for="field_altura">Altura</label>
-                    <input type="text" class="form-control" name="altura" id="field_altura"
-                           formControlName="altura"/>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.barrio" for="field_barrio">Barrio</label>
-                    <input type="text" class="form-control" name="barrio" id="field_barrio"
-                           formControlName="barrio"/>
+                    <div *ngIf="editForm.get('calle').invalid && (editForm.get('calle').dirty || editForm.get('calle').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('calle').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.numero" for="field_numero">Numero</label>
                     <input type="text" class="form-control" name="numero" id="field_numero"
                            formControlName="numero"/>
+                    <div *ngIf="editForm.get('numero').invalid && (editForm.get('numero').dirty || editForm.get('numero').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numero').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.telefonofijo" for="field_telefonofijo">Telefonofijo</label>
                     <input type="text" class="form-control" name="telefonofijo" id="field_telefonofijo"
                            formControlName="telefonofijo"/>
+                    <div *ngIf="editForm.get('telefonofijo').invalid && (editForm.get('telefonofijo').dirty || editForm.get('telefonofijo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telefonofijo').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.numerodecelular" for="field_numerodecelular">Numerodecelular</label>
                     <input type="text" class="form-control" name="numerodecelular" id="field_numerodecelular"
                            formControlName="numerodecelular"/>
+                    <div *ngIf="editForm.get('numerodecelular').invalid && (editForm.get('numerodecelular').dirty || editForm.get('numerodecelular').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numerodecelular').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.oficioprofecion" for="field_oficioprofecion">Oficioprofecion</label>
                     <input type="text" class="form-control" name="oficioprofecion" id="field_oficioprofecion"
                            formControlName="oficioprofecion"/>
+                    <div *ngIf="editForm.get('oficioprofecion').invalid && (editForm.get('oficioprofecion').dirty || editForm.get('oficioprofecion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('oficioprofecion').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.niveldeestudios" for="field_niveldeestudios">Niveldeestudios</label>
                     <input type="text" class="form-control" name="niveldeestudios" id="field_niveldeestudios"
                            formControlName="niveldeestudios"/>
+                    <div *ngIf="editForm.get('niveldeestudios').invalid && (editForm.get('niveldeestudios').dirty || editForm.get('niveldeestudios').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('niveldeestudios').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.gruposanguineo" for="field_gruposanguineo">Gruposanguineo</label>
                     <input type="text" class="form-control" name="gruposanguineo" id="field_gruposanguineo"
                            formControlName="gruposanguineo"/>
+                    <div *ngIf="editForm.get('gruposanguineo').invalid && (editForm.get('gruposanguineo').dirty || editForm.get('gruposanguineo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('gruposanguineo').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.factor" for="field_factor">Factor</label>
                     <input type="text" class="form-control" name="factor" id="field_factor"
                            formControlName="factor"/>
+                    <div *ngIf="editForm.get('factor').invalid && (editForm.get('factor').dirty || editForm.get('factor').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('factor').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.donante" for="field_donante">Donante</label>
                     <input type="text" class="form-control" name="donante" id="field_donante"
                            formControlName="donante"/>
+                    <div *ngIf="editForm.get('donante').invalid && (editForm.get('donante').dirty || editForm.get('donante').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('donante').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.diabetes" for="field_diabetes">Diabetes</label>
                     <input type="text" class="form-control" name="diabetes" id="field_diabetes"
                            formControlName="diabetes"/>
+                    <div *ngIf="editForm.get('diabetes').invalid && (editForm.get('diabetes').dirty || editForm.get('diabetes').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('diabetes').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.hipertension" for="field_hipertension">Hipertension</label>
                     <input type="text" class="form-control" name="hipertension" id="field_hipertension"
                            formControlName="hipertension"/>
+                    <div *ngIf="editForm.get('hipertension').invalid && (editForm.get('hipertension').dirty || editForm.get('hipertension').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('hipertension').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.alergias" for="field_alergias">Alergias</label>
                     <input type="text" class="form-control" name="alergias" id="field_alergias"
                            formControlName="alergias"/>
+                    <div *ngIf="editForm.get('alergias').invalid && (editForm.get('alergias').dirty || editForm.get('alergias').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('alergias').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.asma" for="field_asma">Asma</label>
                     <input type="text" class="form-control" name="asma" id="field_asma"
                            formControlName="asma"/>
+                    <div *ngIf="editForm.get('asma').invalid && (editForm.get('asma').dirty || editForm.get('asma').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('asma').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.otros" for="field_otros">Otros</label>
                     <input type="text" class="form-control" name="otros" id="field_otros"
                            formControlName="otros"/>
+                    <div *ngIf="editForm.get('otros').invalid && (editForm.get('otros').dirty || editForm.get('otros').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('otros').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.fechadeingreso" for="field_fechadeingreso">Fechadeingreso</label>
@@ -214,37 +342,73 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.instrumentolegal" for="field_instrumentolegal">Instrumento legal</label>
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.instrumentolegal" for="field_instrumentolegal">Instrumentolegal</label>
                     <input type="text" class="form-control" name="instrumentolegal" id="field_instrumentolegal"
                            formControlName="instrumentolegal"/>
+                    <div *ngIf="editForm.get('instrumentolegal').invalid && (editForm.get('instrumentolegal').dirty || editForm.get('instrumentolegal').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('instrumentolegal').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.categoria" for="field_categoria">Categoria</label>
                     <input type="text" class="form-control" name="categoria" id="field_categoria"
                            formControlName="categoria"/>
+                    <div *ngIf="editForm.get('categoria').invalid && (editForm.get('categoria').dirty || editForm.get('categoria').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('categoria').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.item" for="field_item">Item</label>
                     <input type="text" class="form-control" name="item" id="field_item"
                            formControlName="item"/>
+                    <div *ngIf="editForm.get('item').invalid && (editForm.get('item').dirty || editForm.get('item').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('item').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.planta" for="field_planta">Planta</label>
                     <input type="text" class="form-control" name="planta" id="field_planta"
                            formControlName="planta"/>
+                    <div *ngIf="editForm.get('planta').invalid && (editForm.get('planta').dirty || editForm.get('planta').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('planta').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.area" for="field_area">Area</label>
                     <input type="text" class="form-control" name="area" id="field_area"
                            formControlName="area"/>
+                    <div *ngIf="editForm.get('area').invalid && (editForm.get('area').dirty || editForm.get('area').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('area').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.direccion" for="field_direccion">Direccion</label>
                     <input type="text" class="form-control" name="direccion" id="field_direccion"
                            formControlName="direccion"/>
+                    <div *ngIf="editForm.get('direccion').invalid && (editForm.get('direccion').dirty || editForm.get('direccion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('direccion').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.annos" for="field_annos">Años</label>
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.annos" for="field_annos">Annos</label>
                     <input type="number" class="form-control" name="annos" id="field_annos"
                            formControlName="annos"/>
                 </div>
@@ -262,132 +426,309 @@
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.realizocomputodeservicios" for="field_realizocomputodeservicios">Realizocomputodeservicios</label>
                     <input type="text" class="form-control" name="realizocomputodeservicios" id="field_realizocomputodeservicios"
                            formControlName="realizocomputodeservicios"/>
+                    <div *ngIf="editForm.get('realizocomputodeservicios').invalid && (editForm.get('realizocomputodeservicios').dirty || editForm.get('realizocomputodeservicios').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('realizocomputodeservicios').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.poseeconocimientoenmaquinasviales" for="field_poseeconocimientoenmaquinasviales">Poseeconocimientoenmaquinasviales</label>
                     <input type="text" class="form-control" name="poseeconocimientoenmaquinasviales" id="field_poseeconocimientoenmaquinasviales"
                            formControlName="poseeconocimientoenmaquinasviales"/>
+                    <div *ngIf="editForm.get('poseeconocimientoenmaquinasviales').invalid && (editForm.get('poseeconocimientoenmaquinasviales').dirty || editForm.get('poseeconocimientoenmaquinasviales').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('poseeconocimientoenmaquinasviales').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciacelular" for="field_casoemergenciacelular">Casoemergenciacelular</label>
                     <input type="text" class="form-control" name="casoemergenciacelular" id="field_casoemergenciacelular"
                            formControlName="casoemergenciacelular"/>
+                    <div *ngIf="editForm.get('casoemergenciacelular').invalid && (editForm.get('casoemergenciacelular').dirty || editForm.get('casoemergenciacelular').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('casoemergenciacelular').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciafijo" for="field_casoemergenciafijo">Casoemergenciafijo</label>
                     <input type="text" class="form-control" name="casoemergenciafijo" id="field_casoemergenciafijo"
                            formControlName="casoemergenciafijo"/>
+                    <div *ngIf="editForm.get('casoemergenciafijo').invalid && (editForm.get('casoemergenciafijo').dirty || editForm.get('casoemergenciafijo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('casoemergenciafijo').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergencianombre" for="field_casoemergencianombre">Casoemergencianombre</label>
                     <input type="text" class="form-control" name="casoemergencianombre" id="field_casoemergencianombre"
                            formControlName="casoemergencianombre"/>
+                    <div *ngIf="editForm.get('casoemergencianombre').invalid && (editForm.get('casoemergencianombre').dirty || editForm.get('casoemergencianombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('casoemergencianombre').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciacelular2" for="field_casoemergenciacelular2">Casoemergenciacelular 2</label>
                     <input type="text" class="form-control" name="casoemergenciacelular2" id="field_casoemergenciacelular2"
                            formControlName="casoemergenciacelular2"/>
+                    <div *ngIf="editForm.get('casoemergenciacelular2').invalid && (editForm.get('casoemergenciacelular2').dirty || editForm.get('casoemergenciacelular2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('casoemergenciacelular2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciafijo2" for="field_casoemergenciafijo2">Casoemergenciafijo 2</label>
                     <input type="text" class="form-control" name="casoemergenciafijo2" id="field_casoemergenciafijo2"
                            formControlName="casoemergenciafijo2"/>
+                    <div *ngIf="editForm.get('casoemergenciafijo2').invalid && (editForm.get('casoemergenciafijo2').dirty || editForm.get('casoemergenciafijo2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('casoemergenciafijo2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergencianombre2" for="field_casoemergencianombre2">Casoemergencianombre 2</label>
                     <input type="text" class="form-control" name="casoemergencianombre2" id="field_casoemergencianombre2"
                            formControlName="casoemergencianombre2"/>
+                    <div *ngIf="editForm.get('casoemergencianombre2').invalid && (editForm.get('casoemergencianombre2').dirty || editForm.get('casoemergencianombre2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('casoemergencianombre2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre" for="field_familiaracargonombre">Familiaracargonombre</label>
                     <input type="text" class="form-control" name="familiaracargonombre" id="field_familiaracargonombre"
                            formControlName="familiaracargonombre"/>
+                    <div *ngIf="editForm.get('familiaracargonombre').invalid && (editForm.get('familiaracargonombre').dirty || editForm.get('familiaracargonombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargonombre').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre2" for="field_familiaracargonombre2">Familiaracargonombre 2</label>
                     <input type="text" class="form-control" name="familiaracargonombre2" id="field_familiaracargonombre2"
                            formControlName="familiaracargonombre2"/>
+                    <div *ngIf="editForm.get('familiaracargonombre2').invalid && (editForm.get('familiaracargonombre2').dirty || editForm.get('familiaracargonombre2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargonombre2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre3" for="field_familiaracargonombre3">Familiaracargonombre 3</label>
                     <input type="text" class="form-control" name="familiaracargonombre3" id="field_familiaracargonombre3"
                            formControlName="familiaracargonombre3"/>
+                    <div *ngIf="editForm.get('familiaracargonombre3').invalid && (editForm.get('familiaracargonombre3').dirty || editForm.get('familiaracargonombre3').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargonombre3').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre4" for="field_familiaracargonombre4">Familiaracargonombre 4</label>
                     <input type="text" class="form-control" name="familiaracargonombre4" id="field_familiaracargonombre4"
                            formControlName="familiaracargonombre4"/>
+                    <div *ngIf="editForm.get('familiaracargonombre4').invalid && (editForm.get('familiaracargonombre4').dirty || editForm.get('familiaracargonombre4').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargonombre4').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre5" for="field_familiaracargonombre5">Familiaracargonombre 5</label>
                     <input type="text" class="form-control" name="familiaracargonombre5" id="field_familiaracargonombre5"
                            formControlName="familiaracargonombre5"/>
+                    <div *ngIf="editForm.get('familiaracargonombre5').invalid && (editForm.get('familiaracargonombre5').dirty || editForm.get('familiaracargonombre5').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargonombre5').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni" for="field_familiaracargodni">Familiaracargodni</label>
                     <input type="text" class="form-control" name="familiaracargodni" id="field_familiaracargodni"
                            formControlName="familiaracargodni"/>
+                    <div *ngIf="editForm.get('familiaracargodni').invalid && (editForm.get('familiaracargodni').dirty || editForm.get('familiaracargodni').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargodni').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni2" for="field_familiaracargodni2">Familiaracargodni 2</label>
                     <input type="text" class="form-control" name="familiaracargodni2" id="field_familiaracargodni2"
                            formControlName="familiaracargodni2"/>
+                    <div *ngIf="editForm.get('familiaracargodni2').invalid && (editForm.get('familiaracargodni2').dirty || editForm.get('familiaracargodni2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargodni2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni3" for="field_familiaracargodni3">Familiaracargodni 3</label>
                     <input type="text" class="form-control" name="familiaracargodni3" id="field_familiaracargodni3"
                            formControlName="familiaracargodni3"/>
+                    <div *ngIf="editForm.get('familiaracargodni3').invalid && (editForm.get('familiaracargodni3').dirty || editForm.get('familiaracargodni3').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargodni3').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni4" for="field_familiaracargodni4">Familiaracargodni 4</label>
                     <input type="text" class="form-control" name="familiaracargodni4" id="field_familiaracargodni4"
                            formControlName="familiaracargodni4"/>
+                    <div *ngIf="editForm.get('familiaracargodni4').invalid && (editForm.get('familiaracargodni4').dirty || editForm.get('familiaracargodni4').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargodni4').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni5" for="field_familiaracargodni5">Familiaracargodni 5</label>
                     <input type="text" class="form-control" name="familiaracargodni5" id="field_familiaracargodni5"
                            formControlName="familiaracargodni5"/>
+                    <div *ngIf="editForm.get('familiaracargodni5').invalid && (editForm.get('familiaracargodni5').dirty || editForm.get('familiaracargodni5').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargodni5').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad" for="field_familiaracargoedad">Familiaracargoedad</label>
                     <input type="text" class="form-control" name="familiaracargoedad" id="field_familiaracargoedad"
                            formControlName="familiaracargoedad"/>
+                    <div *ngIf="editForm.get('familiaracargoedad').invalid && (editForm.get('familiaracargoedad').dirty || editForm.get('familiaracargoedad').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargoedad').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad2" for="field_familiaracargoedad2">Familiaracargoedad 2</label>
                     <input type="text" class="form-control" name="familiaracargoedad2" id="field_familiaracargoedad2"
                            formControlName="familiaracargoedad2"/>
+                    <div *ngIf="editForm.get('familiaracargoedad2').invalid && (editForm.get('familiaracargoedad2').dirty || editForm.get('familiaracargoedad2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargoedad2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad3" for="field_familiaracargoedad3">Familiaracargoedad 3</label>
                     <input type="text" class="form-control" name="familiaracargoedad3" id="field_familiaracargoedad3"
                            formControlName="familiaracargoedad3"/>
+                    <div *ngIf="editForm.get('familiaracargoedad3').invalid && (editForm.get('familiaracargoedad3').dirty || editForm.get('familiaracargoedad3').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargoedad3').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad4" for="field_familiaracargoedad4">Familiaracargoedad 4</label>
                     <input type="text" class="form-control" name="familiaracargoedad4" id="field_familiaracargoedad4"
                            formControlName="familiaracargoedad4"/>
+                    <div *ngIf="editForm.get('familiaracargoedad4').invalid && (editForm.get('familiaracargoedad4').dirty || editForm.get('familiaracargoedad4').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargoedad4').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad5" for="field_familiaracargoedad5">Familiaracargoedad 5</label>
                     <input type="text" class="form-control" name="familiaracargoedad5" id="field_familiaracargoedad5"
                            formControlName="familiaracargoedad5"/>
+                    <div *ngIf="editForm.get('familiaracargoedad5').invalid && (editForm.get('familiaracargoedad5').dirty || editForm.get('familiaracargoedad5').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaracargoedad5').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
-              
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.altura" for="field_altura">Altura</label>
+                    <input type="text" class="form-control" name="altura" id="field_altura"
+                           formControlName="altura"/>
+                    <div *ngIf="editForm.get('altura').invalid && (editForm.get('altura').dirty || editForm.get('altura').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('altura').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.barrio" for="field_barrio">Barrio</label>
+                    <input type="text" class="form-control" name="barrio" id="field_barrio"
+                           formControlName="barrio"/>
+                    <div *ngIf="editForm.get('barrio').invalid && (editForm.get('barrio').dirty || editForm.get('barrio').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('barrio').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.estudiosincompletos" for="field_estudiosincompletos">Estudiosincompletos</label>
                     <input type="text" class="form-control" name="estudiosincompletos" id="field_estudiosincompletos"
                            formControlName="estudiosincompletos"/>
+                    <div *ngIf="editForm.get('estudiosincompletos').invalid && (editForm.get('estudiosincompletos').dirty || editForm.get('estudiosincompletos').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('estudiosincompletos').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugeapellido" for="field_conyugeapellido">Conyugeapellido</label>
                     <input type="text" class="form-control" name="conyugeapellido" id="field_conyugeapellido"
                            formControlName="conyugeapellido"/>
+                    <div *ngIf="editForm.get('conyugeapellido').invalid && (editForm.get('conyugeapellido').dirty || editForm.get('conyugeapellido').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('conyugeapellido').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugenombre" for="field_conyugenombre">Conyugenombre</label>
                     <input type="text" class="form-control" name="conyugenombre" id="field_conyugenombre"
                            formControlName="conyugenombre"/>
+                    <div *ngIf="editForm.get('conyugenombre').invalid && (editForm.get('conyugenombre').dirty || editForm.get('conyugenombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('conyugenombre').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugedni" for="field_conyugedni">Conyugedni</label>
@@ -398,116 +739,254 @@
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugecuil" for="field_conyugecuil">Conyugecuil</label>
                     <input type="text" class="form-control" name="conyugecuil" id="field_conyugecuil"
                            formControlName="conyugecuil"/>
+                    <div *ngIf="editForm.get('conyugecuil').invalid && (editForm.get('conyugecuil').dirty || editForm.get('conyugecuil').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('conyugecuil').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre" for="field_grupofamiliarapellidonombre">Grupofamiliarapellidonombre</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre" id="field_grupofamiliarapellidonombre"
                            formControlName="grupofamiliarapellidonombre"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre').invalid && (editForm.get('grupofamiliarapellidonombre').dirty || editForm.get('grupofamiliarapellidonombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre2" for="field_grupofamiliarapellidonombre2">Grupofamiliarapellidonombre 2</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre2" id="field_grupofamiliarapellidonombre2"
                            formControlName="grupofamiliarapellidonombre2"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre2').invalid && (editForm.get('grupofamiliarapellidonombre2').dirty || editForm.get('grupofamiliarapellidonombre2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre3" for="field_grupofamiliarapellidonombre3">Grupofamiliarapellidonombre 3</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre3" id="field_grupofamiliarapellidonombre3"
                            formControlName="grupofamiliarapellidonombre3"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre3').invalid && (editForm.get('grupofamiliarapellidonombre3').dirty || editForm.get('grupofamiliarapellidonombre3').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre3').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre4" for="field_grupofamiliarapellidonombre4">Grupofamiliarapellidonombre 4</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre4" id="field_grupofamiliarapellidonombre4"
                            formControlName="grupofamiliarapellidonombre4"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre4').invalid && (editForm.get('grupofamiliarapellidonombre4').dirty || editForm.get('grupofamiliarapellidonombre4').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre4').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre5" for="field_grupofamiliarapellidonombre5">Grupofamiliarapellidonombre 5</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre5" id="field_grupofamiliarapellidonombre5"
                            formControlName="grupofamiliarapellidonombre5"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre5').invalid && (editForm.get('grupofamiliarapellidonombre5').dirty || editForm.get('grupofamiliarapellidonombre5').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre5').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre6" for="field_grupofamiliarapellidonombre6">Grupofamiliarapellidonombre 6</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre6" id="field_grupofamiliarapellidonombre6"
                            formControlName="grupofamiliarapellidonombre6"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre6').invalid && (editForm.get('grupofamiliarapellidonombre6').dirty || editForm.get('grupofamiliarapellidonombre6').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre6').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre7" for="field_grupofamiliarapellidonombre7">Grupofamiliarapellidonombre 7</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre7" id="field_grupofamiliarapellidonombre7"
                            formControlName="grupofamiliarapellidonombre7"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre7').invalid && (editForm.get('grupofamiliarapellidonombre7').dirty || editForm.get('grupofamiliarapellidonombre7').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre7').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre8" for="field_grupofamiliarapellidonombre8">Grupofamiliarapellidonombre 8</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre8" id="field_grupofamiliarapellidonombre8"
                            formControlName="grupofamiliarapellidonombre8"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre8').invalid && (editForm.get('grupofamiliarapellidonombre8').dirty || editForm.get('grupofamiliarapellidonombre8').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre8').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre9" for="field_grupofamiliarapellidonombre9">Grupofamiliarapellidonombre 9</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre9" id="field_grupofamiliarapellidonombre9"
                            formControlName="grupofamiliarapellidonombre9"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre9').invalid && (editForm.get('grupofamiliarapellidonombre9').dirty || editForm.get('grupofamiliarapellidonombre9').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre9').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre10" for="field_grupofamiliarapellidonombre10">Grupofamiliarapellidonombre 10</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre10" id="field_grupofamiliarapellidonombre10"
                            formControlName="grupofamiliarapellidonombre10"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre10').invalid && (editForm.get('grupofamiliarapellidonombre10').dirty || editForm.get('grupofamiliarapellidonombre10').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre10').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre11" for="field_grupofamiliarapellidonombre11">Grupofamiliarapellidonombre 11</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombre11" id="field_grupofamiliarapellidonombre11"
                            formControlName="grupofamiliarapellidonombre11"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombre11').invalid && (editForm.get('grupofamiliarapellidonombre11').dirty || editForm.get('grupofamiliarapellidonombre11').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombre11').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad" for="field_grupofamiliarapellidonombreedad">Grupofamiliarapellidonombreedad</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad" id="field_grupofamiliarapellidonombreedad"
                            formControlName="grupofamiliarapellidonombreedad"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad').invalid && (editForm.get('grupofamiliarapellidonombreedad').dirty || editForm.get('grupofamiliarapellidonombreedad').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad2" for="field_grupofamiliarapellidonombreedad2">Grupofamiliarapellidonombreedad 2</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad2" id="field_grupofamiliarapellidonombreedad2"
                            formControlName="grupofamiliarapellidonombreedad2"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad2').invalid && (editForm.get('grupofamiliarapellidonombreedad2').dirty || editForm.get('grupofamiliarapellidonombreedad2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad3" for="field_grupofamiliarapellidonombreedad3">Grupofamiliarapellidonombreedad 3</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad3" id="field_grupofamiliarapellidonombreedad3"
                            formControlName="grupofamiliarapellidonombreedad3"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad3').invalid && (editForm.get('grupofamiliarapellidonombreedad3').dirty || editForm.get('grupofamiliarapellidonombreedad3').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad3').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad4" for="field_grupofamiliarapellidonombreedad4">Grupofamiliarapellidonombreedad 4</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad4" id="field_grupofamiliarapellidonombreedad4"
                            formControlName="grupofamiliarapellidonombreedad4"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad4').invalid && (editForm.get('grupofamiliarapellidonombreedad4').dirty || editForm.get('grupofamiliarapellidonombreedad4').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad4').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad5" for="field_grupofamiliarapellidonombreedad5">Grupofamiliarapellidonombreedad 5</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad5" id="field_grupofamiliarapellidonombreedad5"
                            formControlName="grupofamiliarapellidonombreedad5"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad5').invalid && (editForm.get('grupofamiliarapellidonombreedad5').dirty || editForm.get('grupofamiliarapellidonombreedad5').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad5').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad6" for="field_grupofamiliarapellidonombreedad6">Grupofamiliarapellidonombreedad 6</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad6" id="field_grupofamiliarapellidonombreedad6"
                            formControlName="grupofamiliarapellidonombreedad6"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad6').invalid && (editForm.get('grupofamiliarapellidonombreedad6').dirty || editForm.get('grupofamiliarapellidonombreedad6').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad6').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad7" for="field_grupofamiliarapellidonombreedad7">Grupofamiliarapellidonombreedad 7</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad7" id="field_grupofamiliarapellidonombreedad7"
                            formControlName="grupofamiliarapellidonombreedad7"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad7').invalid && (editForm.get('grupofamiliarapellidonombreedad7').dirty || editForm.get('grupofamiliarapellidonombreedad7').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad7').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad8" for="field_grupofamiliarapellidonombreedad8">Grupofamiliarapellidonombreedad 8</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad8" id="field_grupofamiliarapellidonombreedad8"
                            formControlName="grupofamiliarapellidonombreedad8"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad8').invalid && (editForm.get('grupofamiliarapellidonombreedad8').dirty || editForm.get('grupofamiliarapellidonombreedad8').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad8').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad9" for="field_grupofamiliarapellidonombreedad9">Grupofamiliarapellidonombreedad 9</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad9" id="field_grupofamiliarapellidonombreedad9"
                            formControlName="grupofamiliarapellidonombreedad9"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad9').invalid && (editForm.get('grupofamiliarapellidonombreedad9').dirty || editForm.get('grupofamiliarapellidonombreedad9').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad9').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad10" for="field_grupofamiliarapellidonombreedad10">Grupofamiliarapellidonombreedad 10</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad10" id="field_grupofamiliarapellidonombreedad10"
                            formControlName="grupofamiliarapellidonombreedad10"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad10').invalid && (editForm.get('grupofamiliarapellidonombreedad10').dirty || editForm.get('grupofamiliarapellidonombreedad10').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad10').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad11" for="field_grupofamiliarapellidonombreedad11">Grupofamiliarapellidonombreedad 11</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombreedad11" id="field_grupofamiliarapellidonombreedad11"
                            formControlName="grupofamiliarapellidonombreedad11"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombreedad11').invalid && (editForm.get('grupofamiliarapellidonombreedad11').dirty || editForm.get('grupofamiliarapellidonombreedad11').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombreedad11').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni" for="field_grupofamiliarapellidonombredni">Grupofamiliarapellidonombredni</label>
@@ -568,56 +1047,122 @@
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar" for="field_grupofamiliarapellidonombrefamiliar">Grupofamiliarapellidonombrefamiliar</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar" id="field_grupofamiliarapellidonombrefamiliar"
                            formControlName="grupofamiliarapellidonombrefamiliar"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar').dirty || editForm.get('grupofamiliarapellidonombrefamiliar').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar2" for="field_grupofamiliarapellidonombrefamiliar2">Grupofamiliarapellidonombrefamiliar 2</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar2" id="field_grupofamiliarapellidonombrefamiliar2"
                            formControlName="grupofamiliarapellidonombrefamiliar2"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar2').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar2').dirty || editForm.get('grupofamiliarapellidonombrefamiliar2').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar2').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar4" for="field_grupofamiliarapellidonombrefamiliar4">Grupofamiliarapellidonombrefamiliar 4</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar4" id="field_grupofamiliarapellidonombrefamiliar4"
                            formControlName="grupofamiliarapellidonombrefamiliar4"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar4').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar4').dirty || editForm.get('grupofamiliarapellidonombrefamiliar4').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar4').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar3" for="field_grupofamiliarapellidonombrefamiliar3">Grupofamiliarapellidonombrefamiliar 3</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar3" id="field_grupofamiliarapellidonombrefamiliar3"
                            formControlName="grupofamiliarapellidonombrefamiliar3"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar3').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar3').dirty || editForm.get('grupofamiliarapellidonombrefamiliar3').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar3').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar5" for="field_grupofamiliarapellidonombrefamiliar5">Grupofamiliarapellidonombrefamiliar 5</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar5" id="field_grupofamiliarapellidonombrefamiliar5"
                            formControlName="grupofamiliarapellidonombrefamiliar5"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar5').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar5').dirty || editForm.get('grupofamiliarapellidonombrefamiliar5').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar5').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar6" for="field_grupofamiliarapellidonombrefamiliar6">Grupofamiliarapellidonombrefamiliar 6</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar6" id="field_grupofamiliarapellidonombrefamiliar6"
                            formControlName="grupofamiliarapellidonombrefamiliar6"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar6').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar6').dirty || editForm.get('grupofamiliarapellidonombrefamiliar6').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar6').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar7" for="field_grupofamiliarapellidonombrefamiliar7">Grupofamiliarapellidonombrefamiliar 7</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar7" id="field_grupofamiliarapellidonombrefamiliar7"
                            formControlName="grupofamiliarapellidonombrefamiliar7"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar7').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar7').dirty || editForm.get('grupofamiliarapellidonombrefamiliar7').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar7').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar8" for="field_grupofamiliarapellidonombrefamiliar8">Grupofamiliarapellidonombrefamiliar 8</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar8" id="field_grupofamiliarapellidonombrefamiliar8"
                            formControlName="grupofamiliarapellidonombrefamiliar8"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar8').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar8').dirty || editForm.get('grupofamiliarapellidonombrefamiliar8').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar8').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar9" for="field_grupofamiliarapellidonombrefamiliar9">Grupofamiliarapellidonombrefamiliar 9</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar9" id="field_grupofamiliarapellidonombrefamiliar9"
                            formControlName="grupofamiliarapellidonombrefamiliar9"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar9').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar9').dirty || editForm.get('grupofamiliarapellidonombrefamiliar9').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar9').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar10" for="field_grupofamiliarapellidonombrefamiliar10">Grupofamiliarapellidonombrefamiliar 10</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar10" id="field_grupofamiliarapellidonombrefamiliar10"
                            formControlName="grupofamiliarapellidonombrefamiliar10"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar10').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar10').dirty || editForm.get('grupofamiliarapellidonombrefamiliar10').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar10').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar11" for="field_grupofamiliarapellidonombrefamiliar11">Grupofamiliarapellidonombrefamiliar 11</label>
                     <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar11" id="field_grupofamiliarapellidonombrefamiliar11"
                            formControlName="grupofamiliarapellidonombrefamiliar11"/>
+                    <div *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar11').invalid && (editForm.get('grupofamiliarapellidonombrefamiliar11').dirty || editForm.get('grupofamiliarapellidonombrefamiliar11').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('grupofamiliarapellidonombrefamiliar11').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
                 </div>
 
             </div>
