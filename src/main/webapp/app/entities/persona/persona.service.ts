@@ -10,6 +10,11 @@ import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IPersona } from 'app/shared/model/persona.model';
 
+import 'rxjs/add/operator/distinctUntilChanged';
+
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
+
 type EntityResponseType = HttpResponse<IPersona>;
 type EntityArrayResponseType = HttpResponse<IPersona[]>;
 
@@ -17,7 +22,7 @@ type EntityArrayResponseType = HttpResponse<IPersona[]>;
 export class PersonaService {
   public resourceUrl = SERVER_API_URL + 'api/personas';
 
-  constructor(protected http: HttpClient) {}
+  constructor(protected http: HttpClient) { }
 
   create(persona: IPersona): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(persona);
@@ -38,6 +43,32 @@ export class PersonaService {
       .get<IPersona>(`${this.resourceUrl}/${id}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
+
+
+  search(terms: Observable<string>) {
+    return terms
+      .distinctUntilChanged()
+      .switchMap(term => this.searchEntries(term));
+  }
+
+  /* searchEntries(term) {
+    return this.http
+      .get<IPersona>(`${this.resourceUrl}?dni.equals=${term}`, { observe: 'response' })
+      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  } */
+  searchEntries(term) {
+    return this.http
+      .get(`${this.resourceUrl}?nombre.equals=${term}`)
+      .map(res => res.toString());
+  }
+
+
+  /* 
+    findbydni(dni: any): Observable<EntityResponseType> {
+      return this.http
+        .get<IPersona>(`${this.resourceUrl}?dni.equals=${dni}`, { observe: 'response' })
+        .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+    } */
 
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
