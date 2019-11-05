@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
 import { ILicencia } from 'app/shared/model/licencia.model';
 import { IAltasAscensosBajas } from 'app/shared/model/altas-ascensos-bajas.model';
-import { IConceptoConocimientosEspecialesClasificacionPremios } from 'app/shared/model/concepto-conocimientos-especiales-clasificacion-premios.model';
+import { IConcpremios } from 'app/shared/model/concpremios.model';
 import { IEmbargos } from 'app/shared/model/embargos.model';
 import { IGarantia } from 'app/shared/model/garantia.model';
 import { IOtrosServiciosPrestados } from 'app/shared/model/otros-servicios-prestados.model';
@@ -123,7 +123,7 @@ export interface IPersona {
   grupofamiliarapellidonombrefamiliar11?: string;
   licencias?: ILicencia[];
   altasAscensosBajas?: IAltasAscensosBajas[];
-  conceptoConocimientosEspecialesClasificacionPremios?: IConceptoConocimientosEspecialesClasificacionPremios[];
+  concpremios?: IConcpremios[];
   embargos?: IEmbargos[];
   garantias?: IGarantia[];
   otrosServiciosPrestados?: IOtrosServiciosPrestados[];
@@ -247,7 +247,7 @@ export class Persona implements IPersona {
     public grupofamiliarapellidonombrefamiliar11?: string,
     public licencias?: ILicencia[],
     public altasAscensosBajas?: IAltasAscensosBajas[],
-    public conceptoConocimientosEspecialesClasificacionPremios?: IConceptoConocimientosEspecialesClasificacionPremios[],
+    public concpremios?: IConcpremios[],
     public embargos?: IEmbargos[],
     public garantias?: IGarantia[],
     public otrosServiciosPrestados?: IOtrosServiciosPrestados[],

@@ -85,16 +85,6 @@ public class ConceptoConocimientosEspecialesClasificacionPremiosQueryService ext
             if (criteria.getId() != null) {
                 specification = specification.and(buildSpecification(criteria.getId(), ConceptoConocimientosEspecialesClasificacionPremios_.id));
             }
-            if (criteria.getFecha() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getFecha(), ConceptoConocimientosEspecialesClasificacionPremios_.fecha));
-            }
-            if (criteria.getReferencias() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getReferencias(), ConceptoConocimientosEspecialesClasificacionPremios_.referencias));
-            }
-            if (criteria.getPersonaId() != null) {
-                specification = specification.and(buildSpecification(criteria.getPersonaId(),
-                    root -> root.join(ConceptoConocimientosEspecialesClasificacionPremios_.persona, JoinType.LEFT).get(Persona_.id)));
-            }
         }
         return specification;
     }

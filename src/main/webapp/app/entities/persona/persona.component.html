@@ -8,29 +8,6 @@
                 Create a new Persona
             </span>
         </button>
-
-        <!-- 
-        <input (keyup)="metodo($event.target.value)">
-
-        <ul *ngIf="results">
-            <li *ngFor="let result of results | slice:0:9">
-                <a href="{{ result.latest }}" target="_blank">
-                    {{ result }}
-                </a>
-            </li>
-        </ul> -->
-        <!--  <ng-template #rt let-r="result" let-t="term">
-            <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['nombre']" class="mr-1"
-                style="width: 16px">
-            <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
-        </ng-template>
-
-        <label for="typeahead-template">Buscar:</label>
-        <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
-            [resultTemplate]="rt" [inputFormatter]="formatter" />
-        <hr>
-        <pre>Model: {{ model | json }}</pre>
-         -->
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
@@ -71,6 +48,7 @@
                     <td>{{persona.cuil}}</td>
                     <td>{{persona.dni}}</td>
                     <td>{{persona.legajo}}</td>
+
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit" [routerLink]="['/persona', persona.id, 'view' ]"

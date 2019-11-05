@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory
 import scala.concurrent.duration._
 
 /**
- * Performance test for the ConceptoConocimientosEspecialesClasificacionPremios entity.
+ * Performance test for the Concpremios entity.
  */
-class ConceptoConocimientosEspecialesClasificacionPremiosGatlingTest extends Simulation {
+class ConcpremiosGatlingTest extends Simulation {
 
     val context: LoggerContext = LoggerFactory.getILoggerFactory.asInstanceOf[LoggerContext]
     // Log all HTTP requests
@@ -43,7 +43,7 @@ class ConceptoConocimientosEspecialesClasificacionPremiosGatlingTest extends Sim
         "Upgrade-Insecure-Requests" -> "1"
     )
 
-    val scn = scenario("Test the ConceptoConocimientosEspecialesClasificacionPremios entity")
+    val scn = scenario("Test the Concpremios entity")
         .exec(http("First unauthenticated request")
         .get("/api/account")
         .headers(headers_http)
@@ -66,28 +66,30 @@ class ConceptoConocimientosEspecialesClasificacionPremiosGatlingTest extends Sim
         .check(status.is(200)))
         .pause(10)
         .repeat(2) {
-            exec(http("Get all conceptoConocimientosEspecialesClasificacionPremios")
-            .get("/api/concepto-conocimientos-especiales-clasificacion-premios")
+            exec(http("Get all concpremios")
+            .get("/api/concpremios")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
-            .exec(http("Create new conceptoConocimientosEspecialesClasificacionPremios")
-            .post("/api/concepto-conocimientos-especiales-clasificacion-premios")
+            .exec(http("Create new concpremios")
+            .post("/api/concpremios")
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
+                , "fecha":"2020-01-01T00:00:00.000Z"
+                , "referencias":"SAMPLE_TEXT"
                 }""")).asJson
             .check(status.is(201))
-            .check(headerRegex("Location", "(.*)").saveAs("new_conceptoConocimientosEspecialesClasificacionPremios_url"))).exitHereIfFailed
+            .check(headerRegex("Location", "(.*)").saveAs("new_concpremios_url"))).exitHereIfFailed
             .pause(10)
             .repeat(5) {
-                exec(http("Get created conceptoConocimientosEspecialesClasificacionPremios")
-                .get("${new_conceptoConocimientosEspecialesClasificacionPremios_url}")
+                exec(http("Get created concpremios")
+                .get("${new_concpremios_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
-            .exec(http("Delete created conceptoConocimientosEspecialesClasificacionPremios")
-            .delete("${new_conceptoConocimientosEspecialesClasificacionPremios_url}")
+            .exec(http("Delete created concpremios")
+            .delete("${new_concpremios_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

@@ -8,19 +8,16 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { JhiAlertService } from 'ng-jhipster';
-import {
-  IConceptoConocimientosEspecialesClasificacionPremios,
-  ConceptoConocimientosEspecialesClasificacionPremios
-} from 'app/shared/model/concepto-conocimientos-especiales-clasificacion-premios.model';
-import { ConceptoConocimientosEspecialesClasificacionPremiosService } from './concepto-conocimientos-especiales-clasificacion-premios.service';
+import { IConcpremios, Concpremios } from 'app/shared/model/concpremios.model';
+import { ConcpremiosService } from './concpremios.service';
 import { IPersona } from 'app/shared/model/persona.model';
 import { PersonaService } from 'app/entities/persona/persona.service';
 
 @Component({
-  selector: 'jhi-concepto-conocimientos-especiales-clasificacion-premios-update',
-  templateUrl: './concepto-conocimientos-especiales-clasificacion-premios-update.component.html'
+  selector: 'jhi-concpremios-update',
+  templateUrl: './concpremios-update.component.html'
 })
-export class ConceptoConocimientosEspecialesClasificacionPremiosUpdateComponent implements OnInit {
+export class ConcpremiosUpdateComponent implements OnInit {
   isSaving: boolean;
 
   personas: IPersona[];
@@ -35,7 +32,7 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosUpdateComponent 
 
   constructor(
     protected jhiAlertService: JhiAlertService,
-    protected conceptoConocimientosEspecialesClasificacionPremiosService: ConceptoConocimientosEspecialesClasificacionPremiosService,
+    protected concpremiosService: ConcpremiosService,
     protected personaService: PersonaService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -43,8 +40,8 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosUpdateComponent 
 
   ngOnInit() {
     this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ conceptoConocimientosEspecialesClasificacionPremios }) => {
-      this.updateForm(conceptoConocimientosEspecialesClasificacionPremios);
+    this.activatedRoute.data.subscribe(({ concpremios }) => {
+      this.updateForm(concpremios);
     });
     this.personaService
       .query()
@@ -55,12 +52,12 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosUpdateComponent 
       .subscribe((res: IPersona[]) => (this.personas = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
-  updateForm(conceptoConocimientosEspecialesClasificacionPremios: IConceptoConocimientosEspecialesClasificacionPremios) {
+  updateForm(concpremios: IConcpremios) {
     this.editForm.patchValue({
-      id: conceptoConocimientosEspecialesClasificacionPremios.id,
-      fecha: conceptoConocimientosEspecialesClasificacionPremios.fecha,
-      referencias: conceptoConocimientosEspecialesClasificacionPremios.referencias,
-      persona: conceptoConocimientosEspecialesClasificacionPremios.persona
+      id: concpremios.id,
+      fecha: concpremios.fecha,
+      referencias: concpremios.referencias,
+      persona: concpremios.persona
     });
   }
 
@@ -70,21 +67,17 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosUpdateComponent 
 
   save() {
     this.isSaving = true;
-    const conceptoConocimientosEspecialesClasificacionPremios = this.createFromForm();
-    if (conceptoConocimientosEspecialesClasificacionPremios.id !== undefined) {
-      this.subscribeToSaveResponse(
-        this.conceptoConocimientosEspecialesClasificacionPremiosService.update(conceptoConocimientosEspecialesClasificacionPremios)
-      );
+    const concpremios = this.createFromForm();
+    if (concpremios.id !== undefined) {
+      this.subscribeToSaveResponse(this.concpremiosService.update(concpremios));
     } else {
-      this.subscribeToSaveResponse(
-        this.conceptoConocimientosEspecialesClasificacionPremiosService.create(conceptoConocimientosEspecialesClasificacionPremios)
-      );
+      this.subscribeToSaveResponse(this.concpremiosService.create(concpremios));
     }
   }
 
-  private createFromForm(): IConceptoConocimientosEspecialesClasificacionPremios {
+  private createFromForm(): IConcpremios {
     return {
-      ...new ConceptoConocimientosEspecialesClasificacionPremios(),
+      ...new Concpremios(),
       id: this.editForm.get(['id']).value,
       fecha: this.editForm.get(['fecha']).value,
       referencias: this.editForm.get(['referencias']).value,
@@ -92,7 +85,7 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosUpdateComponent 
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IConceptoConocimientosEspecialesClasificacionPremios>>) {
+  protected subscribeToSaveResponse(result: Observable<HttpResponse<IConcpremios>>) {
     result.subscribe(() => this.onSaveSuccess(), () => this.onSaveError());
   }
 

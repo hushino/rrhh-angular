@@ -22,6 +22,7 @@
     <include file="config/liquibase/changelog/20191104221504_added_entity_AltasAscensosBajas.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191104221505_added_entity_Embargos.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191104221506_added_entity_ConceptoConocimientosEspecialesClasificacionPremios.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191105101203_added_entity_Concpremios.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20191104221500_added_entity_constraints_Licencia.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191104221501_added_entity_constraints_OtrosServiciosPrestados.xml" relativeToChangelogFile="false"/>
@@ -30,5 +31,6 @@
     <include file="config/liquibase/changelog/20191104221504_added_entity_constraints_AltasAscensosBajas.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191104221505_added_entity_constraints_Embargos.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191104221506_added_entity_constraints_ConceptoConocimientosEspecialesClasificacionPremios.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191105101203_added_entity_constraints_Concpremios.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

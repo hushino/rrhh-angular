@@ -1,0 +1,24 @@
+{
+  "rrhhApp": {
+    "concpremios": {
+      "home": {
+        "title": "Concpremios",
+        "createLabel": "Create a new Concpremios",
+        "createOrEditLabel": "Create or edit a Concpremios",
+        "notFound": "No Concpremios found"
+      },
+      "created": "A new Concpremios is created with identifier {{ param }}",
+      "updated": "A Concpremios is updated with identifier {{ param }}",
+      "deleted": "A Concpremios is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Concpremios {{ id }}?"
+      },
+      "detail": {
+        "title": "Concpremios"
+      },
+      "fecha": "Fecha",
+      "referencias": "Referencias",
+      "persona": "Persona"
+    }
+  }
+}

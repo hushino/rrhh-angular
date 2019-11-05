@@ -251,7 +251,7 @@ public class PersonaCriteria implements Serializable, Criteria {
 
     private LongFilter altasAscensosBajasId;
 
-    private LongFilter conceptoConocimientosEspecialesClasificacionPremiosId;
+    private LongFilter concpremiosId;
 
     private LongFilter embargosId;
 
@@ -378,7 +378,7 @@ public class PersonaCriteria implements Serializable, Criteria {
         this.grupofamiliarapellidonombrefamiliar11 = other.grupofamiliarapellidonombrefamiliar11 == null ? null : other.grupofamiliarapellidonombrefamiliar11.copy();
         this.licenciaId = other.licenciaId == null ? null : other.licenciaId.copy();
         this.altasAscensosBajasId = other.altasAscensosBajasId == null ? null : other.altasAscensosBajasId.copy();
-        this.conceptoConocimientosEspecialesClasificacionPremiosId = other.conceptoConocimientosEspecialesClasificacionPremiosId == null ? null : other.conceptoConocimientosEspecialesClasificacionPremiosId.copy();
+        this.concpremiosId = other.concpremiosId == null ? null : other.concpremiosId.copy();
         this.embargosId = other.embargosId == null ? null : other.embargosId.copy();
         this.garantiaId = other.garantiaId == null ? null : other.garantiaId.copy();
         this.otrosServiciosPrestadosId = other.otrosServiciosPrestadosId == null ? null : other.otrosServiciosPrestadosId.copy();
@@ -1294,12 +1294,12 @@ public class PersonaCriteria implements Serializable, Criteria {
         this.altasAscensosBajasId = altasAscensosBajasId;
     }
 
-    public LongFilter getConceptoConocimientosEspecialesClasificacionPremiosId() {
-        return conceptoConocimientosEspecialesClasificacionPremiosId;
+    public LongFilter getConcpremiosId() {
+        return concpremiosId;
     }
 
-    public void setConceptoConocimientosEspecialesClasificacionPremiosId(LongFilter conceptoConocimientosEspecialesClasificacionPremiosId) {
-        this.conceptoConocimientosEspecialesClasificacionPremiosId = conceptoConocimientosEspecialesClasificacionPremiosId;
+    public void setConcpremiosId(LongFilter concpremiosId) {
+        this.concpremiosId = concpremiosId;
     }
 
     public LongFilter getEmbargosId() {
@@ -1458,7 +1458,7 @@ public class PersonaCriteria implements Serializable, Criteria {
             Objects.equals(grupofamiliarapellidonombrefamiliar11, that.grupofamiliarapellidonombrefamiliar11) &&
             Objects.equals(licenciaId, that.licenciaId) &&
             Objects.equals(altasAscensosBajasId, that.altasAscensosBajasId) &&
-            Objects.equals(conceptoConocimientosEspecialesClasificacionPremiosId, that.conceptoConocimientosEspecialesClasificacionPremiosId) &&
+            Objects.equals(concpremiosId, that.concpremiosId) &&
             Objects.equals(embargosId, that.embargosId) &&
             Objects.equals(garantiaId, that.garantiaId) &&
             Objects.equals(otrosServiciosPrestadosId, that.otrosServiciosPrestadosId) &&
@@ -1581,7 +1581,7 @@ public class PersonaCriteria implements Serializable, Criteria {
         grupofamiliarapellidonombrefamiliar11,
         licenciaId,
         altasAscensosBajasId,
-        conceptoConocimientosEspecialesClasificacionPremiosId,
+        concpremiosId,
         embargosId,
         garantiaId,
         otrosServiciosPrestadosId,
@@ -1705,7 +1705,7 @@ public class PersonaCriteria implements Serializable, Criteria {
                 (grupofamiliarapellidonombrefamiliar11 != null ? "grupofamiliarapellidonombrefamiliar11=" + grupofamiliarapellidonombrefamiliar11 + ", " : "") +
                 (licenciaId != null ? "licenciaId=" + licenciaId + ", " : "") +
                 (altasAscensosBajasId != null ? "altasAscensosBajasId=" + altasAscensosBajasId + ", " : "") +
-                (conceptoConocimientosEspecialesClasificacionPremiosId != null ? "conceptoConocimientosEspecialesClasificacionPremiosId=" + conceptoConocimientosEspecialesClasificacionPremiosId + ", " : "") +
+                (concpremiosId != null ? "concpremiosId=" + concpremiosId + ", " : "") +
                 (embargosId != null ? "embargosId=" + embargosId + ", " : "") +
                 (garantiaId != null ? "garantiaId=" + garantiaId + ", " : "") +
                 (otrosServiciosPrestadosId != null ? "otrosServiciosPrestadosId=" + otrosServiciosPrestadosId + ", " : "") +

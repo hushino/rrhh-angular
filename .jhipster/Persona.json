@@ -477,9 +477,9 @@
         },
         {
             "relationshipType": "one-to-many",
-            "otherEntityName": "conceptoConocimientosEspecialesClasificacionPremios",
+            "otherEntityName": "concpremios",
             "otherEntityRelationshipName": "persona",
-            "relationshipName": "conceptoConocimientosEspecialesClasificacionPremios"
+            "relationshipName": "concpremios"
         },
         {
             "relationshipType": "one-to-many",

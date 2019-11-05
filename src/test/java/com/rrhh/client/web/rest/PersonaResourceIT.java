@@ -4,7 +4,7 @@ import com.rrhh.client.RrhhApp;
 import com.rrhh.client.domain.Persona;
 import com.rrhh.client.domain.Licencia;
 import com.rrhh.client.domain.AltasAscensosBajas;
-import com.rrhh.client.domain.ConceptoConocimientosEspecialesClasificacionPremios;
+import com.rrhh.client.domain.Concpremios;
 import com.rrhh.client.domain.Embargos;
 import com.rrhh.client.domain.Garantia;
 import com.rrhh.client.domain.OtrosServiciosPrestados;
@@ -10286,21 +10286,21 @@ public class PersonaResourceIT {
 
     @Test
     @Transactional
-    public void getAllPersonasByConceptoConocimientosEspecialesClasificacionPremiosIsEqualToSomething() throws Exception {
+    public void getAllPersonasByConcpremiosIsEqualToSomething() throws Exception {
         // Initialize the database
         personaRepository.saveAndFlush(persona);
-        ConceptoConocimientosEspecialesClasificacionPremios conceptoConocimientosEspecialesClasificacionPremios = ConceptoConocimientosEspecialesClasificacionPremiosResourceIT.createEntity(em);
-        em.persist(conceptoConocimientosEspecialesClasificacionPremios);
+        Concpremios concpremios = ConcpremiosResourceIT.createEntity(em);
+        em.persist(concpremios);
         em.flush();
-        persona.addConceptoConocimientosEspecialesClasificacionPremios(conceptoConocimientosEspecialesClasificacionPremios);
+        persona.addConcpremios(concpremios);
         personaRepository.saveAndFlush(persona);
-        Long conceptoConocimientosEspecialesClasificacionPremiosId = conceptoConocimientosEspecialesClasificacionPremios.getId();
+        Long concpremiosId = concpremios.getId();
 
-        // Get all the personaList where conceptoConocimientosEspecialesClasificacionPremios equals to conceptoConocimientosEspecialesClasificacionPremiosId
-        defaultPersonaShouldBeFound("conceptoConocimientosEspecialesClasificacionPremiosId.equals=" + conceptoConocimientosEspecialesClasificacionPremiosId);
+        // Get all the personaList where concpremios equals to concpremiosId
+        defaultPersonaShouldBeFound("concpremiosId.equals=" + concpremiosId);
 
-        // Get all the personaList where conceptoConocimientosEspecialesClasificacionPremios equals to conceptoConocimientosEspecialesClasificacionPremiosId + 1
-        defaultPersonaShouldNotBeFound("conceptoConocimientosEspecialesClasificacionPremiosId.equals=" + (conceptoConocimientosEspecialesClasificacionPremiosId + 1));
+        // Get all the personaList where concpremios equals to concpremiosId + 1
+        defaultPersonaShouldNotBeFound("concpremiosId.equals=" + (concpremiosId + 1));
     }
 
 

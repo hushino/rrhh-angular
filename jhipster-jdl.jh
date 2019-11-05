@@ -120,7 +120,7 @@ grupofamiliarapellidonombreedad11 String
 relationship OneToMany{
 	Persona{licencia} to Licencia{persona}
     Persona{altasAscensosBajas} to AltasAscensosBajas{persona}
-    Persona{conceptoConocimientosEspecialesClasificacionPremios} to ConceptoConocimientosEspecialesClasificacionPremios{persona}
+    Persona{concpremios} to Concpremios{persona}
     Persona{embargos} to Embargos{persona}
     Persona{garantia} to Garantia{persona}
     Persona{otrosServiciosPrestados} to OtrosServiciosPrestados{persona}
@@ -167,13 +167,13 @@ origenDeLaDeuda String
 observaciones String
 levantada String
 }
-entity ConceptoConocimientosEspecialesClasificacionPremios{
+entity Concpremios{
 	fecha LocalDate
 	referencias String
 }
 paginate Persona with pagination
 paginate Licencia with pagination
-paginate ConceptoConocimientosEspecialesClasificacionPremios with pagination
+paginate Concpremios with pagination
 paginate Embargos with pagination
 paginate AltasAscensosBajas with pagination
 paginate PenasDisciplinariasSufridas with pagination
@@ -181,7 +181,7 @@ paginate Garantia with pagination
 paginate OtrosServiciosPrestados with pagination
 filter Persona
 filter Licencia
-filter ConceptoConocimientosEspecialesClasificacionPremios
+filter Concpremios
 filter Embargos
 filter AltasAscensosBajas
 filter PenasDisciplinariasSufridas

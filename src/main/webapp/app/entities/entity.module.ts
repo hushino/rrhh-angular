@@ -35,12 +35,10 @@ import { SearchComponent } from './search/search.component';
         path: 'embargos',
         loadChildren: () => import('./embargos/embargos.module').then(m => m.RrhhEmbargosModule)
       },
+   
       {
-        path: 'concepto-conocimientos-especiales-clasificacion-premios',
-        loadChildren: () =>
-          import('./concepto-conocimientos-especiales-clasificacion-premios/concepto-conocimientos-especiales-clasificacion-premios.module').then(
-            m => m.RrhhConceptoConocimientosEspecialesClasificacionPremiosModule
-          )
+        path: 'concpremios',
+        loadChildren: () => import('./concpremios/concpremios.module').then(m => m.RrhhConcpremiosModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

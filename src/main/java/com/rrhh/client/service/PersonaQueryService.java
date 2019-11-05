@@ -423,9 +423,9 @@ public class PersonaQueryService extends QueryService<Persona> {
                 specification = specification.and(buildSpecification(criteria.getAltasAscensosBajasId(),
                     root -> root.join(Persona_.altasAscensosBajas, JoinType.LEFT).get(AltasAscensosBajas_.id)));
             }
-            if (criteria.getConceptoConocimientosEspecialesClasificacionPremiosId() != null) {
-                specification = specification.and(buildSpecification(criteria.getConceptoConocimientosEspecialesClasificacionPremiosId(),
-                    root -> root.join(Persona_.conceptoConocimientosEspecialesClasificacionPremios, JoinType.LEFT).get(ConceptoConocimientosEspecialesClasificacionPremios_.id)));
+            if (criteria.getConcpremiosId() != null) {
+                specification = specification.and(buildSpecification(criteria.getConcpremiosId(),
+                    root -> root.join(Persona_.concpremios, JoinType.LEFT).get(Concpremios_.id)));
             }
             if (criteria.getEmbargosId() != null) {
                 specification = specification.and(buildSpecification(criteria.getEmbargosId(),

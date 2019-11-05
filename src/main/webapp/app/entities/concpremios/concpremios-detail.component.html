@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="concpremios">
+            <h2><span jhiTranslate="rrhhApp.concpremios.detail.title">Concpremios</span> {{concpremios.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rrhhApp.concpremios.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{concpremios.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.concpremios.referencias">Referencias</span></dt>
+                <dd>
+                    <span>{{concpremios.referencias}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.concpremios.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="concpremios.persona">
+                        <a [routerLink]="['/persona', concpremios.persona?.id, 'view']">{{concpremios.persona?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/concpremios', concpremios.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

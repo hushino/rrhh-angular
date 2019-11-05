@@ -8,41 +8,41 @@ import { map } from 'rxjs/operators';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
-import { IPersona } from 'app/shared/model/persona.model';
+import { IConcpremios } from 'app/shared/model/concpremios.model';
 
-type EntityResponseType = HttpResponse<IPersona>;
-type EntityArrayResponseType = HttpResponse<IPersona[]>;
+type EntityResponseType = HttpResponse<IConcpremios>;
+type EntityArrayResponseType = HttpResponse<IConcpremios[]>;
 
 @Injectable({ providedIn: 'root' })
-export class PersonaService {
-  public resourceUrl = SERVER_API_URL + 'api/personas';
+export class ConcpremiosService {
+  public resourceUrl = SERVER_API_URL + 'api/concpremios';
 
   constructor(protected http: HttpClient) {}
 
-  create(persona: IPersona): Observable<EntityResponseType> {
-    const copy = this.convertDateFromClient(persona);
+  create(concpremios: IConcpremios): Observable<EntityResponseType> {
+    const copy = this.convertDateFromClient(concpremios);
     return this.http
-      .post<IPersona>(this.resourceUrl, copy, { observe: 'response' })
+      .post<IConcpremios>(this.resourceUrl, copy, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
-  update(persona: IPersona): Observable<EntityResponseType> {
-    const copy = this.convertDateFromClient(persona);
+  update(concpremios: IConcpremios): Observable<EntityResponseType> {
+    const copy = this.convertDateFromClient(concpremios);
     return this.http
-      .put<IPersona>(this.resourceUrl, copy, { observe: 'response' })
+      .put<IConcpremios>(this.resourceUrl, copy, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
   find(id: number): Observable<EntityResponseType> {
     return this.http
-      .get<IPersona>(`${this.resourceUrl}/${id}`, { observe: 'response' })
+      .get<IConcpremios>(`${this.resourceUrl}/${id}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http
-      .get<IPersona[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .get<IConcpremios[]>(this.resourceUrl, { params: options, observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 
@@ -50,24 +50,24 @@ export class PersonaService {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  protected convertDateFromClient(persona: IPersona): IPersona {
-    const copy: IPersona = Object.assign({}, persona, {
-      fechadeingreso: persona.fechadeingreso != null && persona.fechadeingreso.isValid() ? persona.fechadeingreso.format(DATE_FORMAT) : null
+  protected convertDateFromClient(concpremios: IConcpremios): IConcpremios {
+    const copy: IConcpremios = Object.assign({}, concpremios, {
+      fecha: concpremios.fecha != null && concpremios.fecha.isValid() ? concpremios.fecha.format(DATE_FORMAT) : null
     });
     return copy;
   }
 
   protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
     if (res.body) {
-      res.body.fechadeingreso = res.body.fechadeingreso != null ? moment(res.body.fechadeingreso) : null;
+      res.body.fecha = res.body.fecha != null ? moment(res.body.fecha) : null;
     }
     return res;
   }
 
   protected convertDateArrayFromServer(res: EntityArrayResponseType): EntityArrayResponseType {
     if (res.body) {
-      res.body.forEach((persona: IPersona) => {
-        persona.fechadeingreso = persona.fechadeingreso != null ? moment(persona.fechadeingreso) : null;
+      res.body.forEach((concpremios: IConcpremios) => {
+        concpremios.fecha = concpremios.fecha != null ? moment(concpremios.fecha) : null;
       });
     }
     return res;

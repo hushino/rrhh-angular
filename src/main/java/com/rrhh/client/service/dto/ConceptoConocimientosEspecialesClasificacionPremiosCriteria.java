@@ -10,7 +10,6 @@ import io.github.jhipster.service.filter.FloatFilter;
 import io.github.jhipster.service.filter.IntegerFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
-import io.github.jhipster.service.filter.LocalDateFilter;
 
 /**
  * Criteria class for the {@link com.rrhh.client.domain.ConceptoConocimientosEspecialesClasificacionPremios} entity. This class is used
@@ -27,20 +26,11 @@ public class ConceptoConocimientosEspecialesClasificacionPremiosCriteria impleme
 
     private LongFilter id;
 
-    private LocalDateFilter fecha;
-
-    private StringFilter referencias;
-
-    private LongFilter personaId;
-
     public ConceptoConocimientosEspecialesClasificacionPremiosCriteria(){
     }
 
     public ConceptoConocimientosEspecialesClasificacionPremiosCriteria(ConceptoConocimientosEspecialesClasificacionPremiosCriteria other){
         this.id = other.id == null ? null : other.id.copy();
-        this.fecha = other.fecha == null ? null : other.fecha.copy();
-        this.referencias = other.referencias == null ? null : other.referencias.copy();
-        this.personaId = other.personaId == null ? null : other.personaId.copy();
     }
 
     @Override
@@ -56,30 +46,6 @@ public class ConceptoConocimientosEspecialesClasificacionPremiosCriteria impleme
         this.id = id;
     }
 
-    public LocalDateFilter getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateFilter fecha) {
-        this.fecha = fecha;
-    }
-
-    public StringFilter getReferencias() {
-        return referencias;
-    }
-
-    public void setReferencias(StringFilter referencias) {
-        this.referencias = referencias;
-    }
-
-    public LongFilter getPersonaId() {
-        return personaId;
-    }
-
-    public void setPersonaId(LongFilter personaId) {
-        this.personaId = personaId;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -91,19 +57,13 @@ public class ConceptoConocimientosEspecialesClasificacionPremiosCriteria impleme
         }
         final ConceptoConocimientosEspecialesClasificacionPremiosCriteria that = (ConceptoConocimientosEspecialesClasificacionPremiosCriteria) o;
         return
-            Objects.equals(id, that.id) &&
-            Objects.equals(fecha, that.fecha) &&
-            Objects.equals(referencias, that.referencias) &&
-            Objects.equals(personaId, that.personaId);
+            Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-        id,
-        fecha,
-        referencias,
-        personaId
+        id
         );
     }
 
@@ -111,9 +71,6 @@ public class ConceptoConocimientosEspecialesClasificacionPremiosCriteria impleme
     public String toString() {
         return "ConceptoConocimientosEspecialesClasificacionPremiosCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
-                (fecha != null ? "fecha=" + fecha + ", " : "") +
-                (referencias != null ? "referencias=" + referencias + ", " : "") +
-                (personaId != null ? "personaId=" + personaId + ", " : "") +
             "}";
     }
 

@@ -370,7 +370,7 @@ public class Persona implements Serializable {
     private Set<AltasAscensosBajas> altasAscensosBajas = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
-    private Set<ConceptoConocimientosEspecialesClasificacionPremios> conceptoConocimientosEspecialesClasificacionPremios = new HashSet<>();
+    private Set<Concpremios> concpremios = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
     private Set<Embargos> embargos = new HashSet<>();
@@ -1899,29 +1899,29 @@ public class Persona implements Serializable {
         this.altasAscensosBajas = altasAscensosBajas;
     }
 
-    public Set<ConceptoConocimientosEspecialesClasificacionPremios> getConceptoConocimientosEspecialesClasificacionPremios() {
-        return conceptoConocimientosEspecialesClasificacionPremios;
+    public Set<Concpremios> getConcpremios() {
+        return concpremios;
     }
 
-    public Persona conceptoConocimientosEspecialesClasificacionPremios(Set<ConceptoConocimientosEspecialesClasificacionPremios> conceptoConocimientosEspecialesClasificacionPremios) {
-        this.conceptoConocimientosEspecialesClasificacionPremios = conceptoConocimientosEspecialesClasificacionPremios;
+    public Persona concpremios(Set<Concpremios> concpremios) {
+        this.concpremios = concpremios;
         return this;
     }
 
-    public Persona addConceptoConocimientosEspecialesClasificacionPremios(ConceptoConocimientosEspecialesClasificacionPremios conceptoConocimientosEspecialesClasificacionPremios) {
-        this.conceptoConocimientosEspecialesClasificacionPremios.add(conceptoConocimientosEspecialesClasificacionPremios);
-        conceptoConocimientosEspecialesClasificacionPremios.setPersona(this);
+    public Persona addConcpremios(Concpremios concpremios) {
+        this.concpremios.add(concpremios);
+        concpremios.setPersona(this);
         return this;
     }
 
-    public Persona removeConceptoConocimientosEspecialesClasificacionPremios(ConceptoConocimientosEspecialesClasificacionPremios conceptoConocimientosEspecialesClasificacionPremios) {
-        this.conceptoConocimientosEspecialesClasificacionPremios.remove(conceptoConocimientosEspecialesClasificacionPremios);
-        conceptoConocimientosEspecialesClasificacionPremios.setPersona(null);
+    public Persona removeConcpremios(Concpremios concpremios) {
+        this.concpremios.remove(concpremios);
+        concpremios.setPersona(null);
         return this;
     }
 
-    public void setConceptoConocimientosEspecialesClasificacionPremios(Set<ConceptoConocimientosEspecialesClasificacionPremios> conceptoConocimientosEspecialesClasificacionPremios) {
-        this.conceptoConocimientosEspecialesClasificacionPremios = conceptoConocimientosEspecialesClasificacionPremios;
+    public void setConcpremios(Set<Concpremios> concpremios) {
+        this.concpremios = concpremios;
     }
 
     public Set<Embargos> getEmbargos() {

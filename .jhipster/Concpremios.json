@@ -1,5 +1,5 @@
 {
-    "name": "ConceptoConocimientosEspecialesClasificacionPremios",
+    "name": "Concpremios",
     "fields": [
         {
             "fieldName": "fecha",
@@ -14,13 +14,13 @@
         {
             "relationshipType": "many-to-one",
             "otherEntityName": "persona",
-            "otherEntityRelationshipName": "conceptoConocimientosEspecialesClasificacionPremios",
+            "otherEntityRelationshipName": "concpremios",
             "relationshipName": "persona",
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20191104221506",
-    "entityTableName": "concepto_conocimientos_especiales_clasificacion_premios",
+    "changelogDate": "20191105101203",
+    "entityTableName": "concpremios",
     "dto": "no",
     "pagination": "pagination",
     "service": "serviceImpl",

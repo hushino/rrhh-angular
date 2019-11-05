@@ -4,20 +4,20 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Data } from '@angular/router';
 
 import { RrhhTestModule } from '../../../test.module';
-import { ConceptoConocimientosEspecialesClasificacionPremiosComponent } from 'app/entities/concepto-conocimientos-especiales-clasificacion-premios/concepto-conocimientos-especiales-clasificacion-premios.component';
-import { ConceptoConocimientosEspecialesClasificacionPremiosService } from 'app/entities/concepto-conocimientos-especiales-clasificacion-premios/concepto-conocimientos-especiales-clasificacion-premios.service';
-import { ConceptoConocimientosEspecialesClasificacionPremios } from 'app/shared/model/concepto-conocimientos-especiales-clasificacion-premios.model';
+import { ConcpremiosComponent } from 'app/entities/concpremios/concpremios.component';
+import { ConcpremiosService } from 'app/entities/concpremios/concpremios.service';
+import { Concpremios } from 'app/shared/model/concpremios.model';
 
 describe('Component Tests', () => {
-  describe('ConceptoConocimientosEspecialesClasificacionPremios Management Component', () => {
-    let comp: ConceptoConocimientosEspecialesClasificacionPremiosComponent;
-    let fixture: ComponentFixture<ConceptoConocimientosEspecialesClasificacionPremiosComponent>;
-    let service: ConceptoConocimientosEspecialesClasificacionPremiosService;
+  describe('Concpremios Management Component', () => {
+    let comp: ConcpremiosComponent;
+    let fixture: ComponentFixture<ConcpremiosComponent>;
+    let service: ConcpremiosService;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [RrhhTestModule],
-        declarations: [ConceptoConocimientosEspecialesClasificacionPremiosComponent],
+        declarations: [ConcpremiosComponent],
         providers: [
           {
             provide: ActivatedRoute,
@@ -36,12 +36,12 @@ describe('Component Tests', () => {
           }
         ]
       })
-        .overrideTemplate(ConceptoConocimientosEspecialesClasificacionPremiosComponent, '')
+        .overrideTemplate(ConcpremiosComponent, '')
         .compileComponents();
 
-      fixture = TestBed.createComponent(ConceptoConocimientosEspecialesClasificacionPremiosComponent);
+      fixture = TestBed.createComponent(ConcpremiosComponent);
       comp = fixture.componentInstance;
-      service = fixture.debugElement.injector.get(ConceptoConocimientosEspecialesClasificacionPremiosService);
+      service = fixture.debugElement.injector.get(ConcpremiosService);
     });
 
     it('Should call load all on init', () => {
@@ -50,7 +50,7 @@ describe('Component Tests', () => {
       spyOn(service, 'query').and.returnValue(
         of(
           new HttpResponse({
-            body: [new ConceptoConocimientosEspecialesClasificacionPremios(123)],
+            body: [new Concpremios(123)],
             headers
           })
         )
@@ -61,7 +61,7 @@ describe('Component Tests', () => {
 
       // THEN
       expect(service.query).toHaveBeenCalled();
-      expect(comp.conceptoConocimientosEspecialesClasificacionPremios[0]).toEqual(jasmine.objectContaining({ id: 123 }));
+      expect(comp.concpremios[0]).toEqual(jasmine.objectContaining({ id: 123 }));
     });
 
     it('should load a page', () => {
@@ -70,7 +70,7 @@ describe('Component Tests', () => {
       spyOn(service, 'query').and.returnValue(
         of(
           new HttpResponse({
-            body: [new ConceptoConocimientosEspecialesClasificacionPremios(123)],
+            body: [new Concpremios(123)],
             headers
           })
         )
@@ -81,7 +81,7 @@ describe('Component Tests', () => {
 
       // THEN
       expect(service.query).toHaveBeenCalled();
-      expect(comp.conceptoConocimientosEspecialesClasificacionPremios[0]).toEqual(jasmine.objectContaining({ id: 123 }));
+      expect(comp.concpremios[0]).toEqual(jasmine.objectContaining({ id: 123 }));
     });
 
     it('should not load a page is the page is the same as the previous page', () => {
@@ -100,7 +100,7 @@ describe('Component Tests', () => {
       spyOn(service, 'query').and.returnValue(
         of(
           new HttpResponse({
-            body: [new ConceptoConocimientosEspecialesClasificacionPremios(123)],
+            body: [new Concpremios(123)],
             headers
           })
         )
@@ -113,7 +113,7 @@ describe('Component Tests', () => {
       // THEN
       expect(comp.page).toEqual(0);
       expect(service.query).toHaveBeenCalledTimes(2);
-      expect(comp.conceptoConocimientosEspecialesClasificacionPremios[0]).toEqual(jasmine.objectContaining({ id: 123 }));
+      expect(comp.concpremios[0]).toEqual(jasmine.objectContaining({ id: 123 }));
     });
     it('should calculate the sort attribute for an id', () => {
       // WHEN

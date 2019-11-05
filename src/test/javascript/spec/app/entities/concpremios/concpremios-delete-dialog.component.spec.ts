@@ -4,27 +4,27 @@ import { of } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { RrhhTestModule } from '../../../test.module';
-import { ConceptoConocimientosEspecialesClasificacionPremiosDeleteDialogComponent } from 'app/entities/concepto-conocimientos-especiales-clasificacion-premios/concepto-conocimientos-especiales-clasificacion-premios-delete-dialog.component';
-import { ConceptoConocimientosEspecialesClasificacionPremiosService } from 'app/entities/concepto-conocimientos-especiales-clasificacion-premios/concepto-conocimientos-especiales-clasificacion-premios.service';
+import { ConcpremiosDeleteDialogComponent } from 'app/entities/concpremios/concpremios-delete-dialog.component';
+import { ConcpremiosService } from 'app/entities/concpremios/concpremios.service';
 
 describe('Component Tests', () => {
-  describe('ConceptoConocimientosEspecialesClasificacionPremios Management Delete Component', () => {
-    let comp: ConceptoConocimientosEspecialesClasificacionPremiosDeleteDialogComponent;
-    let fixture: ComponentFixture<ConceptoConocimientosEspecialesClasificacionPremiosDeleteDialogComponent>;
-    let service: ConceptoConocimientosEspecialesClasificacionPremiosService;
+  describe('Concpremios Management Delete Component', () => {
+    let comp: ConcpremiosDeleteDialogComponent;
+    let fixture: ComponentFixture<ConcpremiosDeleteDialogComponent>;
+    let service: ConcpremiosService;
     let mockEventManager: any;
     let mockActiveModal: any;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [RrhhTestModule],
-        declarations: [ConceptoConocimientosEspecialesClasificacionPremiosDeleteDialogComponent]
+        declarations: [ConcpremiosDeleteDialogComponent]
       })
-        .overrideTemplate(ConceptoConocimientosEspecialesClasificacionPremiosDeleteDialogComponent, '')
+        .overrideTemplate(ConcpremiosDeleteDialogComponent, '')
         .compileComponents();
-      fixture = TestBed.createComponent(ConceptoConocimientosEspecialesClasificacionPremiosDeleteDialogComponent);
+      fixture = TestBed.createComponent(ConcpremiosDeleteDialogComponent);
       comp = fixture.componentInstance;
-      service = fixture.debugElement.injector.get(ConceptoConocimientosEspecialesClasificacionPremiosService);
+      service = fixture.debugElement.injector.get(ConcpremiosService);
       mockEventManager = fixture.debugElement.injector.get(JhiEventManager);
       mockActiveModal = fixture.debugElement.injector.get(NgbActiveModal);
     });

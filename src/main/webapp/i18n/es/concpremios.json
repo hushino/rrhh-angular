@@ -1,0 +1,24 @@
+{
+  "rrhhApp": {
+    "concpremios": {
+      "home": {
+        "title": "Concpremios",
+        "createLabel": "Crear nuevo Concpremios",
+        "createOrEditLabel": "Crear o editar Concpremios",
+        "notFound": "No Concpremios found"
+      },
+      "created": "Un nuevo Concpremios ha sido creado con el identificador {{ param }}",
+      "updated": "Un Concpremios ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Concpremios ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Concpremios {{ id }}?"
+      },
+      "detail": {
+        "title": "Concpremios"
+      },
+      "fecha": "Fecha",
+      "referencias": "Referencias",
+      "persona": "Persona"
+    }
+  }
+}

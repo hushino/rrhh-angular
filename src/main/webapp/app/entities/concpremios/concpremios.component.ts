@@ -6,19 +6,19 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks } from 'ng-jhipster';
 
-import { IConceptoConocimientosEspecialesClasificacionPremios } from 'app/shared/model/concepto-conocimientos-especiales-clasificacion-premios.model';
+import { IConcpremios } from 'app/shared/model/concpremios.model';
 import { AccountService } from 'app/core/auth/account.service';
 
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
-import { ConceptoConocimientosEspecialesClasificacionPremiosService } from './concepto-conocimientos-especiales-clasificacion-premios.service';
+import { ConcpremiosService } from './concpremios.service';
 
 @Component({
-  selector: 'jhi-concepto-conocimientos-especiales-clasificacion-premios',
-  templateUrl: './concepto-conocimientos-especiales-clasificacion-premios.component.html'
+  selector: 'jhi-concpremios',
+  templateUrl: './concpremios.component.html'
 })
-export class ConceptoConocimientosEspecialesClasificacionPremiosComponent implements OnInit, OnDestroy {
+export class ConcpremiosComponent implements OnInit, OnDestroy {
   currentAccount: any;
-  conceptoConocimientosEspecialesClasificacionPremios: IConceptoConocimientosEspecialesClasificacionPremios[];
+  concpremios: IConcpremios[];
   error: any;
   success: any;
   eventSubscriber: Subscription;
@@ -32,7 +32,7 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosComponent implem
   reverse: any;
 
   constructor(
-    protected conceptoConocimientosEspecialesClasificacionPremiosService: ConceptoConocimientosEspecialesClasificacionPremiosService,
+    protected concpremiosService: ConcpremiosService,
     protected parseLinks: JhiParseLinks,
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
@@ -49,15 +49,13 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosComponent implem
   }
 
   loadAll() {
-    this.conceptoConocimientosEspecialesClasificacionPremiosService
+    this.concpremiosService
       .query({
         page: this.page - 1,
         size: this.itemsPerPage,
         sort: this.sort()
       })
-      .subscribe((res: HttpResponse<IConceptoConocimientosEspecialesClasificacionPremios[]>) =>
-        this.paginateConceptoConocimientosEspecialesClasificacionPremios(res.body, res.headers)
-      );
+      .subscribe((res: HttpResponse<IConcpremios[]>) => this.paginateConcpremios(res.body, res.headers));
   }
 
   loadPage(page: number) {
@@ -68,7 +66,7 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosComponent implem
   }
 
   transition() {
-    this.router.navigate(['/concepto-conocimientos-especiales-clasificacion-premios'], {
+    this.router.navigate(['/concpremios'], {
       queryParams: {
         page: this.page,
         size: this.itemsPerPage,
@@ -81,7 +79,7 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosComponent implem
   clear() {
     this.page = 0;
     this.router.navigate([
-      '/concepto-conocimientos-especiales-clasificacion-premios',
+      '/concpremios',
       {
         page: this.page,
         sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
@@ -95,21 +93,19 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosComponent implem
     this.accountService.identity().subscribe(account => {
       this.currentAccount = account;
     });
-    this.registerChangeInConceptoConocimientosEspecialesClasificacionPremios();
+    this.registerChangeInConcpremios();
   }
 
   ngOnDestroy() {
     this.eventManager.destroy(this.eventSubscriber);
   }
 
-  trackId(index: number, item: IConceptoConocimientosEspecialesClasificacionPremios) {
+  trackId(index: number, item: IConcpremios) {
     return item.id;
   }
 
-  registerChangeInConceptoConocimientosEspecialesClasificacionPremios() {
-    this.eventSubscriber = this.eventManager.subscribe('conceptoConocimientosEspecialesClasificacionPremiosListModification', response =>
-      this.loadAll()
-    );
+  registerChangeInConcpremios() {
+    this.eventSubscriber = this.eventManager.subscribe('concpremiosListModification', response => this.loadAll());
   }
 
   sort() {
@@ -120,12 +116,9 @@ export class ConceptoConocimientosEspecialesClasificacionPremiosComponent implem
     return result;
   }
 
-  protected paginateConceptoConocimientosEspecialesClasificacionPremios(
-    data: IConceptoConocimientosEspecialesClasificacionPremios[],
-    headers: HttpHeaders
-  ) {
+  protected paginateConcpremios(data: IConcpremios[], headers: HttpHeaders) {
     this.links = this.parseLinks.parse(headers.get('link'));
     this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-    this.conceptoConocimientosEspecialesClasificacionPremios = data;
+    this.concpremios = data;
   }
 }

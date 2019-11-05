@@ -3,18 +3,15 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { take, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
-import { ConceptoConocimientosEspecialesClasificacionPremiosService } from 'app/entities/concepto-conocimientos-especiales-clasificacion-premios/concepto-conocimientos-especiales-clasificacion-premios.service';
-import {
-  IConceptoConocimientosEspecialesClasificacionPremios,
-  ConceptoConocimientosEspecialesClasificacionPremios
-} from 'app/shared/model/concepto-conocimientos-especiales-clasificacion-premios.model';
+import { ConcpremiosService } from 'app/entities/concpremios/concpremios.service';
+import { IConcpremios, Concpremios } from 'app/shared/model/concpremios.model';
 
 describe('Service Tests', () => {
-  describe('ConceptoConocimientosEspecialesClasificacionPremios Service', () => {
+  describe('Concpremios Service', () => {
     let injector: TestBed;
-    let service: ConceptoConocimientosEspecialesClasificacionPremiosService;
+    let service: ConcpremiosService;
     let httpMock: HttpTestingController;
-    let elemDefault: IConceptoConocimientosEspecialesClasificacionPremios;
+    let elemDefault: IConcpremios;
     let expectedResult;
     let currentDate: moment.Moment;
     beforeEach(() => {
@@ -23,11 +20,11 @@ describe('Service Tests', () => {
       });
       expectedResult = {};
       injector = getTestBed();
-      service = injector.get(ConceptoConocimientosEspecialesClasificacionPremiosService);
+      service = injector.get(ConcpremiosService);
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new ConceptoConocimientosEspecialesClasificacionPremios(0, currentDate, 'AAAAAAA');
+      elemDefault = new Concpremios(0, currentDate, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -48,7 +45,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: elemDefault });
       });
 
-      it('should create a ConceptoConocimientosEspecialesClasificacionPremios', () => {
+      it('should create a Concpremios', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
@@ -63,7 +60,7 @@ describe('Service Tests', () => {
           returnedFromService
         );
         service
-          .create(new ConceptoConocimientosEspecialesClasificacionPremios(null))
+          .create(new Concpremios(null))
           .pipe(take(1))
           .subscribe(resp => (expectedResult = resp));
         const req = httpMock.expectOne({ method: 'POST' });
@@ -71,7 +68,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should update a ConceptoConocimientosEspecialesClasificacionPremios', () => {
+      it('should update a Concpremios', () => {
         const returnedFromService = Object.assign(
           {
             fecha: currentDate.format(DATE_FORMAT),
@@ -95,7 +92,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should return a list of ConceptoConocimientosEspecialesClasificacionPremios', () => {
+      it('should return a list of Concpremios', () => {
         const returnedFromService = Object.assign(
           {
             fecha: currentDate.format(DATE_FORMAT),
@@ -122,7 +119,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toContainEqual(expected);
       });
 
-      it('should delete a ConceptoConocimientosEspecialesClasificacionPremios', () => {
+      it('should delete a Concpremios', () => {
         service.delete(123).subscribe(resp => (expectedResult = resp.ok));
 
         const req = httpMock.expectOne({ method: 'DELETE' });
