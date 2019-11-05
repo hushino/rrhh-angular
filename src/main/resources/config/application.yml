@@ -69,10 +69,12 @@ spring:
     jpa:
       repositories:
         bootstrap-mode: deferred
+        enabled: false
   jpa:
     open-in-view: false
     properties:
       hibernate.jdbc.time_zone: UTC
+
     hibernate:
       ddl-auto: update
       naming:

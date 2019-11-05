@@ -21,15 +21,10 @@
     "buildTool": "maven",
     "useSass": true,
     "clientPackageManager": "npm",
-    "testFrameworks": [
-      "gatling"
-    ],
+    "testFrameworks": ["gatling"],
     "enableTranslation": true,
     "nativeLanguage": "es",
-    "languages": [
-      "en",
-      "es"
-    ],
+    "languages": ["en", "es"],
     "clientFramework": "angularX",
     "jhiPrefix": "jhi",
     "jhipsterVersion": "6.4.1",
@@ -39,6 +34,11 @@
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
-    "blueprints": []
+    "blueprints": [],
+    "appsFolders": ["rrhh-angular"],
+    "directoryPath": "../",
+    "monitoring": "no",
+    "consoleOptions": [],
+    "jwtSecretKey": "MDliZmU1NmZkOTlmNWI3NDk2MmVmZjFmOGVhNzVmZjg1NjQ0NThhOWE1ZTMxN2RkYjVkMmFmZTFhN2UyNmYwZjliYzRiZDYzYmI2MDBmMGU3NzExYjEwNGE2NzI0ZmJlMjFhNw=="
   }
 }
