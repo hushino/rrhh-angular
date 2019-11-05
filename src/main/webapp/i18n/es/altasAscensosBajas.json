@@ -1,0 +1,27 @@
+{
+  "rrhhApp": {
+    "altasAscensosBajas": {
+      "home": {
+        "title": "Altas Ascensos Bajas",
+        "createLabel": "Crear nuevo Altas Ascensos Bajas",
+        "createOrEditLabel": "Crear o editar Altas Ascensos Bajas",
+        "notFound": "No Altas Ascensos Bajas found"
+      },
+      "created": "Un nuevo Altas Ascensos Bajas ha sido creado con el identificador {{ param }}",
+      "updated": "Un Altas Ascensos Bajas ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Altas Ascensos Bajas ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Altas Ascensos Bajas {{ id }}?"
+      },
+      "detail": {
+        "title": "Altas Ascensos Bajas"
+      },
+      "fecha": "Fecha",
+      "cargo": "Cargo",
+      "observaciones": "Observaciones",
+      "expediente": "Expediente",
+      "prestaservicioen": "Prestaservicioen",
+      "persona": "Persona"
+    }
+  }
+}

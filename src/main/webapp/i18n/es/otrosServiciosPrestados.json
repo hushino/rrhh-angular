@@ -1,0 +1,24 @@
+{
+  "rrhhApp": {
+    "otrosServiciosPrestados": {
+      "home": {
+        "title": "Otros Servicios Prestados",
+        "createLabel": "Crear nuevo Otros Servicios Prestados",
+        "createOrEditLabel": "Crear o editar Otros Servicios Prestados",
+        "notFound": "No Otros Servicios Prestados found"
+      },
+      "created": "Un nuevo Otros Servicios Prestados ha sido creado con el identificador {{ param }}",
+      "updated": "Un Otros Servicios Prestados ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Otros Servicios Prestados ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Otros Servicios Prestados {{ id }}?"
+      },
+      "detail": {
+        "title": "Otros Servicios Prestados"
+      },
+      "fecha": "Fecha",
+      "referencias": "Referencias",
+      "persona": "Persona"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-embargos-heading" jhiTranslate="rrhhApp.embargos.home.createOrEditLabel">Create or edit a Embargos</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.fecha" for="field_fecha">Fecha</label>
+                    <div class="input-group">
+                        <input id="field_fecha" type="text" class="form-control" name="fecha" ngbDatepicker  #fechaDp="ngbDatepicker" formControlName="fecha"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.juzgado" for="field_juzgado">Juzgado</label>
+                    <input type="text" class="form-control" name="juzgado" id="field_juzgado"
+                           formControlName="juzgado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.acreedor" for="field_acreedor">Acreedor</label>
+                    <input type="text" class="form-control" name="acreedor" id="field_acreedor"
+                           formControlName="acreedor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.cantidad" for="field_cantidad">Cantidad</label>
+                    <input type="text" class="form-control" name="cantidad" id="field_cantidad"
+                           formControlName="cantidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.expediente" for="field_expediente">Expediente</label>
+                    <input type="text" class="form-control" name="expediente" id="field_expediente"
+                           formControlName="expediente"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.fianzaODeudaPropia" for="field_fianzaODeudaPropia">Fianza O Deuda Propia</label>
+                    <input type="text" class="form-control" name="fianzaODeudaPropia" id="field_fianzaODeudaPropia"
+                           formControlName="fianzaODeudaPropia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.origenDeLaDeuda" for="field_origenDeLaDeuda">Origen De La Deuda</label>
+                    <input type="text" class="form-control" name="origenDeLaDeuda" id="field_origenDeLaDeuda"
+                           formControlName="origenDeLaDeuda"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.observaciones" for="field_observaciones">Observaciones</label>
+                    <input type="text" class="form-control" name="observaciones" id="field_observaciones"
+                           formControlName="observaciones"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.levantada" for="field_levantada">Levantada</label>
+                    <input type="text" class="form-control" name="levantada" id="field_levantada"
+                           formControlName="levantada"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.embargos.persona" for="field_persona">Persona</label>
+                    <select class="form-control" id="field_persona" name="persona" formControlName="persona">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personaOption.id === editForm.get('persona').value?.id ? editForm.get('persona').value : personaOption" *ngFor="let personaOption of personas; trackBy: trackPersonaById">{{personaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

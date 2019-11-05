@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-garantia-heading" jhiTranslate="rrhhApp.garantia.home.createOrEditLabel">Create or edit a Garantia</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.garantia.presentadaFecha" for="field_presentadaFecha">Presentada Fecha</label>
+                    <div class="input-group">
+                        <input id="field_presentadaFecha" type="text" class="form-control" name="presentadaFecha" ngbDatepicker  #presentadaFechaDp="ngbDatepicker" formControlName="presentadaFecha"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="presentadaFechaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.garantia.garantia" for="field_garantia">Garantia</label>
+                    <input type="text" class="form-control" name="garantia" id="field_garantia"
+                           formControlName="garantia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.garantia.observaciones" for="field_observaciones">Observaciones</label>
+                    <input type="text" class="form-control" name="observaciones" id="field_observaciones"
+                           formControlName="observaciones"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.garantia.persona" for="field_persona">Persona</label>
+                    <select class="form-control" id="field_persona" name="persona" formControlName="persona">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personaOption.id === editForm.get('persona').value?.id ? editForm.get('persona').value : personaOption" *ngFor="let personaOption of personas; trackBy: trackPersonaById">{{personaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "rrhhApp": {
+    "penasDisciplinariasSufridas": {
+      "home": {
+        "title": "Penas Disciplinarias Sufridas",
+        "createLabel": "Crear nuevo Penas Disciplinarias Sufridas",
+        "createOrEditLabel": "Crear o editar Penas Disciplinarias Sufridas",
+        "notFound": "No Penas Disciplinarias Sufridas found"
+      },
+      "created": "Un nuevo Penas Disciplinarias Sufridas ha sido creado con el identificador {{ param }}",
+      "updated": "Un Penas Disciplinarias Sufridas ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Penas Disciplinarias Sufridas ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Penas Disciplinarias Sufridas {{ id }}?"
+      },
+      "detail": {
+        "title": "Penas Disciplinarias Sufridas"
+      },
+      "fecha": "Fecha",
+      "expediente": "Expediente",
+      "referencias": "Referencias",
+      "persona": "Persona"
+    }
+  }
+}

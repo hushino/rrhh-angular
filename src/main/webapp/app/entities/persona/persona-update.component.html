@@ -1,0 +1,633 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-persona-heading" jhiTranslate="rrhhApp.persona.home.createOrEditLabel">Create or edit a Persona</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.apellido" for="field_apellido">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="field_apellido"
+                           formControlName="apellido"/>
+                    <div *ngIf="editForm.get('apellido').invalid && (editForm.get('apellido').dirty || editForm.get('apellido').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellido').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.cuil" for="field_cuil">Cuil</label>
+                    <input type="text" class="form-control" name="cuil" id="field_cuil"
+                           formControlName="cuil"/>
+                    <div *ngIf="editForm.get('cuil').invalid && (editForm.get('cuil').dirty || editForm.get('cuil').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cuil').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.dni" for="field_dni">Dni</label>
+                    <input type="number" class="form-control" name="dni" id="field_dni"
+                           formControlName="dni"/>
+                    <div *ngIf="editForm.get('dni').invalid && (editForm.get('dni').dirty || editForm.get('dni').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dni').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dni')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.legajo" for="field_legajo">Legajo</label>
+                    <input type="number" class="form-control" name="legajo" id="field_legajo"
+                           formControlName="legajo"/>
+                    <div *ngIf="editForm.get('legajo').invalid && (editForm.get('legajo').dirty || editForm.get('legajo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('legajo').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('legajo')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.apodo" for="field_apodo">Apodo</label>
+                    <input type="text" class="form-control" name="apodo" id="field_apodo"
+                           formControlName="apodo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.foto" for="field_foto">Foto</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoContentType').value + ';base64,' + editForm.get('foto').value" style="max-height: 100px;" *ngIf="editForm.get('foto').value" alt="persona image"/>
+                        <div *ngIf="editForm.get('foto').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoContentType').value}}, {{byteSize(editForm.get('foto').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto', 'fotoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto" (change)="setFileData($event, 'foto', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto" id="field_foto"
+                           formControlName="foto"/>
+                    <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                           formControlName="fotoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.soltero" for="field_soltero">Soltero</label>
+                    <input type="text" class="form-control" name="soltero" id="field_soltero"
+                           formControlName="soltero"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.casado" for="field_casado">Casado</label>
+                    <input type="text" class="form-control" name="casado" id="field_casado"
+                           formControlName="casado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.conviviente" for="field_conviviente">Conviviente</label>
+                    <input type="text" class="form-control" name="conviviente" id="field_conviviente"
+                           formControlName="conviviente"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.viudo" for="field_viudo">Viudo</label>
+                    <input type="text" class="form-control" name="viudo" id="field_viudo"
+                           formControlName="viudo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.domicilio" for="field_domicilio">Domicilio</label>
+                    <input type="text" class="form-control" name="domicilio" id="field_domicilio"
+                           formControlName="domicilio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.lugar" for="field_lugar">Lugar</label>
+                    <input type="text" class="form-control" name="lugar" id="field_lugar"
+                           formControlName="lugar"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.calle" for="field_calle">Calle</label>
+                    <input type="text" class="form-control" name="calle" id="field_calle"
+                           formControlName="calle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.telefonofijo" for="field_telefonofijo">Telefonofijo</label>
+                    <input type="text" class="form-control" name="telefonofijo" id="field_telefonofijo"
+                           formControlName="telefonofijo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.numerodecelular" for="field_numerodecelular">Numerodecelular</label>
+                    <input type="text" class="form-control" name="numerodecelular" id="field_numerodecelular"
+                           formControlName="numerodecelular"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.oficioprofecion" for="field_oficioprofecion">Oficioprofecion</label>
+                    <input type="text" class="form-control" name="oficioprofecion" id="field_oficioprofecion"
+                           formControlName="oficioprofecion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.niveldeestudios" for="field_niveldeestudios">Niveldeestudios</label>
+                    <input type="text" class="form-control" name="niveldeestudios" id="field_niveldeestudios"
+                           formControlName="niveldeestudios"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.gruposanguineo" for="field_gruposanguineo">Gruposanguineo</label>
+                    <input type="text" class="form-control" name="gruposanguineo" id="field_gruposanguineo"
+                           formControlName="gruposanguineo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.factor" for="field_factor">Factor</label>
+                    <input type="text" class="form-control" name="factor" id="field_factor"
+                           formControlName="factor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.donante" for="field_donante">Donante</label>
+                    <input type="text" class="form-control" name="donante" id="field_donante"
+                           formControlName="donante"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.diabetes" for="field_diabetes">Diabetes</label>
+                    <input type="text" class="form-control" name="diabetes" id="field_diabetes"
+                           formControlName="diabetes"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.hipertension" for="field_hipertension">Hipertension</label>
+                    <input type="text" class="form-control" name="hipertension" id="field_hipertension"
+                           formControlName="hipertension"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.alergias" for="field_alergias">Alergias</label>
+                    <input type="text" class="form-control" name="alergias" id="field_alergias"
+                           formControlName="alergias"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.asma" for="field_asma">Asma</label>
+                    <input type="text" class="form-control" name="asma" id="field_asma"
+                           formControlName="asma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.otros" for="field_otros">Otros</label>
+                    <input type="text" class="form-control" name="otros" id="field_otros"
+                           formControlName="otros"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.fechadeingreso" for="field_fechadeingreso">Fechadeingreso</label>
+                    <div class="input-group">
+                        <input id="field_fechadeingreso" type="text" class="form-control" name="fechadeingreso" ngbDatepicker  #fechadeingresoDp="ngbDatepicker" formControlName="fechadeingreso"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechadeingresoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.instrumentolegal" for="field_instrumentolegal">Instrumentolegal</label>
+                    <input type="text" class="form-control" name="instrumentolegal" id="field_instrumentolegal"
+                           formControlName="instrumentolegal"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.categoria" for="field_categoria">Categoria</label>
+                    <input type="text" class="form-control" name="categoria" id="field_categoria"
+                           formControlName="categoria"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.item" for="field_item">Item</label>
+                    <input type="text" class="form-control" name="item" id="field_item"
+                           formControlName="item"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.planta" for="field_planta">Planta</label>
+                    <input type="text" class="form-control" name="planta" id="field_planta"
+                           formControlName="planta"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.area" for="field_area">Area</label>
+                    <input type="text" class="form-control" name="area" id="field_area"
+                           formControlName="area"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.annos" for="field_annos">Annos</label>
+                    <input type="number" class="form-control" name="annos" id="field_annos"
+                           formControlName="annos"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.meses" for="field_meses">Meses</label>
+                    <input type="number" class="form-control" name="meses" id="field_meses"
+                           formControlName="meses"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.dias" for="field_dias">Dias</label>
+                    <input type="number" class="form-control" name="dias" id="field_dias"
+                           formControlName="dias"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.realizocomputodeservicios" for="field_realizocomputodeservicios">Realizocomputodeservicios</label>
+                    <input type="text" class="form-control" name="realizocomputodeservicios" id="field_realizocomputodeservicios"
+                           formControlName="realizocomputodeservicios"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.poseeconocimientoenmaquinasviales" for="field_poseeconocimientoenmaquinasviales">Poseeconocimientoenmaquinasviales</label>
+                    <input type="text" class="form-control" name="poseeconocimientoenmaquinasviales" id="field_poseeconocimientoenmaquinasviales"
+                           formControlName="poseeconocimientoenmaquinasviales"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciacelular" for="field_casoemergenciacelular">Casoemergenciacelular</label>
+                    <input type="text" class="form-control" name="casoemergenciacelular" id="field_casoemergenciacelular"
+                           formControlName="casoemergenciacelular"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciafijo" for="field_casoemergenciafijo">Casoemergenciafijo</label>
+                    <input type="text" class="form-control" name="casoemergenciafijo" id="field_casoemergenciafijo"
+                           formControlName="casoemergenciafijo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergencianombre" for="field_casoemergencianombre">Casoemergencianombre</label>
+                    <input type="text" class="form-control" name="casoemergencianombre" id="field_casoemergencianombre"
+                           formControlName="casoemergencianombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciacelular2" for="field_casoemergenciacelular2">Casoemergenciacelular 2</label>
+                    <input type="text" class="form-control" name="casoemergenciacelular2" id="field_casoemergenciacelular2"
+                           formControlName="casoemergenciacelular2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergenciafijo2" for="field_casoemergenciafijo2">Casoemergenciafijo 2</label>
+                    <input type="text" class="form-control" name="casoemergenciafijo2" id="field_casoemergenciafijo2"
+                           formControlName="casoemergenciafijo2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.casoemergencianombre2" for="field_casoemergencianombre2">Casoemergencianombre 2</label>
+                    <input type="text" class="form-control" name="casoemergencianombre2" id="field_casoemergencianombre2"
+                           formControlName="casoemergencianombre2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre" for="field_familiaracargonombre">Familiaracargonombre</label>
+                    <input type="text" class="form-control" name="familiaracargonombre" id="field_familiaracargonombre"
+                           formControlName="familiaracargonombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre2" for="field_familiaracargonombre2">Familiaracargonombre 2</label>
+                    <input type="text" class="form-control" name="familiaracargonombre2" id="field_familiaracargonombre2"
+                           formControlName="familiaracargonombre2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre3" for="field_familiaracargonombre3">Familiaracargonombre 3</label>
+                    <input type="text" class="form-control" name="familiaracargonombre3" id="field_familiaracargonombre3"
+                           formControlName="familiaracargonombre3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre4" for="field_familiaracargonombre4">Familiaracargonombre 4</label>
+                    <input type="text" class="form-control" name="familiaracargonombre4" id="field_familiaracargonombre4"
+                           formControlName="familiaracargonombre4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargonombre5" for="field_familiaracargonombre5">Familiaracargonombre 5</label>
+                    <input type="text" class="form-control" name="familiaracargonombre5" id="field_familiaracargonombre5"
+                           formControlName="familiaracargonombre5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni" for="field_familiaracargodni">Familiaracargodni</label>
+                    <input type="text" class="form-control" name="familiaracargodni" id="field_familiaracargodni"
+                           formControlName="familiaracargodni"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni2" for="field_familiaracargodni2">Familiaracargodni 2</label>
+                    <input type="text" class="form-control" name="familiaracargodni2" id="field_familiaracargodni2"
+                           formControlName="familiaracargodni2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni3" for="field_familiaracargodni3">Familiaracargodni 3</label>
+                    <input type="text" class="form-control" name="familiaracargodni3" id="field_familiaracargodni3"
+                           formControlName="familiaracargodni3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni4" for="field_familiaracargodni4">Familiaracargodni 4</label>
+                    <input type="text" class="form-control" name="familiaracargodni4" id="field_familiaracargodni4"
+                           formControlName="familiaracargodni4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargodni5" for="field_familiaracargodni5">Familiaracargodni 5</label>
+                    <input type="text" class="form-control" name="familiaracargodni5" id="field_familiaracargodni5"
+                           formControlName="familiaracargodni5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad" for="field_familiaracargoedad">Familiaracargoedad</label>
+                    <input type="text" class="form-control" name="familiaracargoedad" id="field_familiaracargoedad"
+                           formControlName="familiaracargoedad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad2" for="field_familiaracargoedad2">Familiaracargoedad 2</label>
+                    <input type="text" class="form-control" name="familiaracargoedad2" id="field_familiaracargoedad2"
+                           formControlName="familiaracargoedad2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad3" for="field_familiaracargoedad3">Familiaracargoedad 3</label>
+                    <input type="text" class="form-control" name="familiaracargoedad3" id="field_familiaracargoedad3"
+                           formControlName="familiaracargoedad3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad4" for="field_familiaracargoedad4">Familiaracargoedad 4</label>
+                    <input type="text" class="form-control" name="familiaracargoedad4" id="field_familiaracargoedad4"
+                           formControlName="familiaracargoedad4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.familiaracargoedad5" for="field_familiaracargoedad5">Familiaracargoedad 5</label>
+                    <input type="text" class="form-control" name="familiaracargoedad5" id="field_familiaracargoedad5"
+                           formControlName="familiaracargoedad5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.altura" for="field_altura">Altura</label>
+                    <input type="text" class="form-control" name="altura" id="field_altura"
+                           formControlName="altura"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.barrio" for="field_barrio">Barrio</label>
+                    <input type="text" class="form-control" name="barrio" id="field_barrio"
+                           formControlName="barrio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.estudiosincompletos" for="field_estudiosincompletos">Estudiosincompletos</label>
+                    <input type="text" class="form-control" name="estudiosincompletos" id="field_estudiosincompletos"
+                           formControlName="estudiosincompletos"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugeapellido" for="field_conyugeapellido">Conyugeapellido</label>
+                    <input type="text" class="form-control" name="conyugeapellido" id="field_conyugeapellido"
+                           formControlName="conyugeapellido"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugenombre" for="field_conyugenombre">Conyugenombre</label>
+                    <input type="text" class="form-control" name="conyugenombre" id="field_conyugenombre"
+                           formControlName="conyugenombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugedni" for="field_conyugedni">Conyugedni</label>
+                    <input type="number" class="form-control" name="conyugedni" id="field_conyugedni"
+                           formControlName="conyugedni"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.conyugecuil" for="field_conyugecuil">Conyugecuil</label>
+                    <input type="text" class="form-control" name="conyugecuil" id="field_conyugecuil"
+                           formControlName="conyugecuil"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre" for="field_grupofamiliarapellidonombre">Grupofamiliarapellidonombre</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre" id="field_grupofamiliarapellidonombre"
+                           formControlName="grupofamiliarapellidonombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre2" for="field_grupofamiliarapellidonombre2">Grupofamiliarapellidonombre 2</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre2" id="field_grupofamiliarapellidonombre2"
+                           formControlName="grupofamiliarapellidonombre2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre3" for="field_grupofamiliarapellidonombre3">Grupofamiliarapellidonombre 3</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre3" id="field_grupofamiliarapellidonombre3"
+                           formControlName="grupofamiliarapellidonombre3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre4" for="field_grupofamiliarapellidonombre4">Grupofamiliarapellidonombre 4</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre4" id="field_grupofamiliarapellidonombre4"
+                           formControlName="grupofamiliarapellidonombre4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre5" for="field_grupofamiliarapellidonombre5">Grupofamiliarapellidonombre 5</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre5" id="field_grupofamiliarapellidonombre5"
+                           formControlName="grupofamiliarapellidonombre5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre6" for="field_grupofamiliarapellidonombre6">Grupofamiliarapellidonombre 6</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre6" id="field_grupofamiliarapellidonombre6"
+                           formControlName="grupofamiliarapellidonombre6"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre7" for="field_grupofamiliarapellidonombre7">Grupofamiliarapellidonombre 7</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre7" id="field_grupofamiliarapellidonombre7"
+                           formControlName="grupofamiliarapellidonombre7"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre8" for="field_grupofamiliarapellidonombre8">Grupofamiliarapellidonombre 8</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre8" id="field_grupofamiliarapellidonombre8"
+                           formControlName="grupofamiliarapellidonombre8"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre9" for="field_grupofamiliarapellidonombre9">Grupofamiliarapellidonombre 9</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre9" id="field_grupofamiliarapellidonombre9"
+                           formControlName="grupofamiliarapellidonombre9"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre10" for="field_grupofamiliarapellidonombre10">Grupofamiliarapellidonombre 10</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre10" id="field_grupofamiliarapellidonombre10"
+                           formControlName="grupofamiliarapellidonombre10"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre11" for="field_grupofamiliarapellidonombre11">Grupofamiliarapellidonombre 11</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombre11" id="field_grupofamiliarapellidonombre11"
+                           formControlName="grupofamiliarapellidonombre11"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad" for="field_grupofamiliarapellidonombreedad">Grupofamiliarapellidonombreedad</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad" id="field_grupofamiliarapellidonombreedad"
+                           formControlName="grupofamiliarapellidonombreedad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad2" for="field_grupofamiliarapellidonombreedad2">Grupofamiliarapellidonombreedad 2</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad2" id="field_grupofamiliarapellidonombreedad2"
+                           formControlName="grupofamiliarapellidonombreedad2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad3" for="field_grupofamiliarapellidonombreedad3">Grupofamiliarapellidonombreedad 3</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad3" id="field_grupofamiliarapellidonombreedad3"
+                           formControlName="grupofamiliarapellidonombreedad3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad4" for="field_grupofamiliarapellidonombreedad4">Grupofamiliarapellidonombreedad 4</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad4" id="field_grupofamiliarapellidonombreedad4"
+                           formControlName="grupofamiliarapellidonombreedad4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad5" for="field_grupofamiliarapellidonombreedad5">Grupofamiliarapellidonombreedad 5</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad5" id="field_grupofamiliarapellidonombreedad5"
+                           formControlName="grupofamiliarapellidonombreedad5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad6" for="field_grupofamiliarapellidonombreedad6">Grupofamiliarapellidonombreedad 6</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad6" id="field_grupofamiliarapellidonombreedad6"
+                           formControlName="grupofamiliarapellidonombreedad6"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad7" for="field_grupofamiliarapellidonombreedad7">Grupofamiliarapellidonombreedad 7</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad7" id="field_grupofamiliarapellidonombreedad7"
+                           formControlName="grupofamiliarapellidonombreedad7"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad8" for="field_grupofamiliarapellidonombreedad8">Grupofamiliarapellidonombreedad 8</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad8" id="field_grupofamiliarapellidonombreedad8"
+                           formControlName="grupofamiliarapellidonombreedad8"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad9" for="field_grupofamiliarapellidonombreedad9">Grupofamiliarapellidonombreedad 9</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad9" id="field_grupofamiliarapellidonombreedad9"
+                           formControlName="grupofamiliarapellidonombreedad9"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad10" for="field_grupofamiliarapellidonombreedad10">Grupofamiliarapellidonombreedad 10</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad10" id="field_grupofamiliarapellidonombreedad10"
+                           formControlName="grupofamiliarapellidonombreedad10"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad11" for="field_grupofamiliarapellidonombreedad11">Grupofamiliarapellidonombreedad 11</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombreedad11" id="field_grupofamiliarapellidonombreedad11"
+                           formControlName="grupofamiliarapellidonombreedad11"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni" for="field_grupofamiliarapellidonombredni">Grupofamiliarapellidonombredni</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni" id="field_grupofamiliarapellidonombredni"
+                           formControlName="grupofamiliarapellidonombredni"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni2" for="field_grupofamiliarapellidonombredni2">Grupofamiliarapellidonombredni 2</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni2" id="field_grupofamiliarapellidonombredni2"
+                           formControlName="grupofamiliarapellidonombredni2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni3" for="field_grupofamiliarapellidonombredni3">Grupofamiliarapellidonombredni 3</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni3" id="field_grupofamiliarapellidonombredni3"
+                           formControlName="grupofamiliarapellidonombredni3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni4" for="field_grupofamiliarapellidonombredni4">Grupofamiliarapellidonombredni 4</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni4" id="field_grupofamiliarapellidonombredni4"
+                           formControlName="grupofamiliarapellidonombredni4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni5" for="field_grupofamiliarapellidonombredni5">Grupofamiliarapellidonombredni 5</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni5" id="field_grupofamiliarapellidonombredni5"
+                           formControlName="grupofamiliarapellidonombredni5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni6" for="field_grupofamiliarapellidonombredni6">Grupofamiliarapellidonombredni 6</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni6" id="field_grupofamiliarapellidonombredni6"
+                           formControlName="grupofamiliarapellidonombredni6"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni7" for="field_grupofamiliarapellidonombredni7">Grupofamiliarapellidonombredni 7</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni7" id="field_grupofamiliarapellidonombredni7"
+                           formControlName="grupofamiliarapellidonombredni7"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni8" for="field_grupofamiliarapellidonombredni8">Grupofamiliarapellidonombredni 8</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni8" id="field_grupofamiliarapellidonombredni8"
+                           formControlName="grupofamiliarapellidonombredni8"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni9" for="field_grupofamiliarapellidonombredni9">Grupofamiliarapellidonombredni 9</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni9" id="field_grupofamiliarapellidonombredni9"
+                           formControlName="grupofamiliarapellidonombredni9"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni10" for="field_grupofamiliarapellidonombredni10">Grupofamiliarapellidonombredni 10</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni10" id="field_grupofamiliarapellidonombredni10"
+                           formControlName="grupofamiliarapellidonombredni10"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni11" for="field_grupofamiliarapellidonombredni11">Grupofamiliarapellidonombredni 11</label>
+                    <input type="number" class="form-control" name="grupofamiliarapellidonombredni11" id="field_grupofamiliarapellidonombredni11"
+                           formControlName="grupofamiliarapellidonombredni11"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar" for="field_grupofamiliarapellidonombrefamiliar">Grupofamiliarapellidonombrefamiliar</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar" id="field_grupofamiliarapellidonombrefamiliar"
+                           formControlName="grupofamiliarapellidonombrefamiliar"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar2" for="field_grupofamiliarapellidonombrefamiliar2">Grupofamiliarapellidonombrefamiliar 2</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar2" id="field_grupofamiliarapellidonombrefamiliar2"
+                           formControlName="grupofamiliarapellidonombrefamiliar2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar4" for="field_grupofamiliarapellidonombrefamiliar4">Grupofamiliarapellidonombrefamiliar 4</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar4" id="field_grupofamiliarapellidonombrefamiliar4"
+                           formControlName="grupofamiliarapellidonombrefamiliar4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar3" for="field_grupofamiliarapellidonombrefamiliar3">Grupofamiliarapellidonombrefamiliar 3</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar3" id="field_grupofamiliarapellidonombrefamiliar3"
+                           formControlName="grupofamiliarapellidonombrefamiliar3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar5" for="field_grupofamiliarapellidonombrefamiliar5">Grupofamiliarapellidonombrefamiliar 5</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar5" id="field_grupofamiliarapellidonombrefamiliar5"
+                           formControlName="grupofamiliarapellidonombrefamiliar5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar6" for="field_grupofamiliarapellidonombrefamiliar6">Grupofamiliarapellidonombrefamiliar 6</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar6" id="field_grupofamiliarapellidonombrefamiliar6"
+                           formControlName="grupofamiliarapellidonombrefamiliar6"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar7" for="field_grupofamiliarapellidonombrefamiliar7">Grupofamiliarapellidonombrefamiliar 7</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar7" id="field_grupofamiliarapellidonombrefamiliar7"
+                           formControlName="grupofamiliarapellidonombrefamiliar7"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar8" for="field_grupofamiliarapellidonombrefamiliar8">Grupofamiliarapellidonombrefamiliar 8</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar8" id="field_grupofamiliarapellidonombrefamiliar8"
+                           formControlName="grupofamiliarapellidonombrefamiliar8"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar9" for="field_grupofamiliarapellidonombrefamiliar9">Grupofamiliarapellidonombrefamiliar 9</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar9" id="field_grupofamiliarapellidonombrefamiliar9"
+                           formControlName="grupofamiliarapellidonombrefamiliar9"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar10" for="field_grupofamiliarapellidonombrefamiliar10">Grupofamiliarapellidonombrefamiliar 10</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar10" id="field_grupofamiliarapellidonombrefamiliar10"
+                           formControlName="grupofamiliarapellidonombrefamiliar10"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar11" for="field_grupofamiliarapellidonombrefamiliar11">Grupofamiliarapellidonombrefamiliar 11</label>
+                    <input type="text" class="form-control" name="grupofamiliarapellidonombrefamiliar11" id="field_grupofamiliarapellidonombrefamiliar11"
+                           formControlName="grupofamiliarapellidonombrefamiliar11"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "rrhhApp": {
+    "licencia": {
+      "home": {
+        "title": "Licencias",
+        "createLabel": "Crear nuevo Licencia",
+        "createOrEditLabel": "Crear o editar Licencia",
+        "notFound": "No Licencias found"
+      },
+      "created": "Un nuevo Licencia ha sido creado con el identificador {{ param }}",
+      "updated": "Un Licencia ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Licencia ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Licencia {{ id }}?"
+      },
+      "detail": {
+        "title": "Licencia"
+      },
+      "fechaLicencia": "Fecha Licencia",
+      "referencias": "Referencias",
+      "numeroDeDias": "Numero De Dias",
+      "observaciones": "Observaciones",
+      "usuariosMod": "Usuarios Mod",
+      "persona": "Persona"
+    }
+  }
+}

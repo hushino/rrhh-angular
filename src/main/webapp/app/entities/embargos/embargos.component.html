@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="rrhhApp.embargos.home.title">Embargos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-embargos" [routerLink]="['/embargos/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="rrhhApp.embargos.home.createLabel">
+            Create a new Embargos
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="embargos?.length === 0">
+        <span jhiTranslate="rrhhApp.embargos.home.notFound">No embargos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="embargos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="rrhhApp.embargos.fecha">Fecha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="juzgado"><span jhiTranslate="rrhhApp.embargos.juzgado">Juzgado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="acreedor"><span jhiTranslate="rrhhApp.embargos.acreedor">Acreedor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cantidad"><span jhiTranslate="rrhhApp.embargos.cantidad">Cantidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="expediente"><span jhiTranslate="rrhhApp.embargos.expediente">Expediente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fianzaODeudaPropia"><span jhiTranslate="rrhhApp.embargos.fianzaODeudaPropia">Fianza O Deuda Propia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="origenDeLaDeuda"><span jhiTranslate="rrhhApp.embargos.origenDeLaDeuda">Origen De La Deuda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="observaciones"><span jhiTranslate="rrhhApp.embargos.observaciones">Observaciones</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="levantada"><span jhiTranslate="rrhhApp.embargos.levantada">Levantada</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="persona.id"><span jhiTranslate="rrhhApp.embargos.persona">Persona</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let embargos of embargos ;trackBy: trackId">
+                <td><a [routerLink]="['/embargos', embargos.id, 'view' ]">{{embargos.id}}</a></td>
+                <td>{{embargos.fecha | date:'mediumDate'}}</td>
+                <td>{{embargos.juzgado}}</td>
+                <td>{{embargos.acreedor}}</td>
+                <td>{{embargos.cantidad}}</td>
+                <td>{{embargos.expediente}}</td>
+                <td>{{embargos.fianzaODeudaPropia}}</td>
+                <td>{{embargos.origenDeLaDeuda}}</td>
+                <td>{{embargos.observaciones}}</td>
+                <td>{{embargos.levantada}}</td>
+                <td>
+                    <div *ngIf="embargos.persona">
+                        <a [routerLink]="['/persona', embargos.persona?.id, 'view' ]" >{{embargos.persona?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/embargos', embargos.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/embargos', embargos.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/embargos', { outlets: { popup: embargos.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="embargos?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

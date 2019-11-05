@@ -1,0 +1,190 @@
+entity Persona {
+	nombre String required 
+    apellido String required
+    cuil String required
+    dni Integer required
+    legajo Integer required
+	apodo String
+    foto ImageBlob
+	soltero String
+	casado String
+	conviviente String 
+	viudo String
+	domicilio String
+	lugar String
+	calle String
+	numero String
+	telefonofijo String
+	numerodecelular String
+	oficioprofecion String
+	niveldeestudios String
+gruposanguineo String
+factor String
+donante String
+diabetes String
+hipertension String
+alergias String
+asma String
+otros String
+fechadeingreso LocalDate
+instrumentolegal String
+categoria String
+item String
+planta String
+area String
+direccion String
+annos Integer
+meses Integer
+dias Integer
+realizocomputodeservicios String
+poseeconocimientoenmaquinasviales String
+casoemergenciacelular String
+casoemergenciafijo String
+casoemergencianombre String
+casoemergenciacelular2 String
+casoemergenciafijo2 String
+casoemergencianombre2 String
+familiaracargonombre String
+familiaracargonombre2 String
+familiaracargonombre3 String
+familiaracargonombre4 String
+familiaracargonombre5 String
+familiaracargodni String
+familiaracargodni2 String
+familiaracargodni3 String
+familiaracargodni4 String
+familiaracargodni5 String
+familiaracargoedad String
+familiaracargoedad2 String
+familiaracargoedad3 String
+familiaracargoedad4 String
+familiaracargoedad5 String
+altura String
+barrio String
+estudiosincompletos String
+conyugeapellido String
+conyugenombre String
+conyugedni Integer
+conyugecuil String
+grupofamiliarapellidonombre String
+grupofamiliarapellidonombre2 String
+grupofamiliarapellidonombre3 String
+grupofamiliarapellidonombre4 String
+grupofamiliarapellidonombre5 String
+grupofamiliarapellidonombre6 String
+grupofamiliarapellidonombre7 String
+grupofamiliarapellidonombre8 String
+grupofamiliarapellidonombre9 String
+grupofamiliarapellidonombre10 String
+grupofamiliarapellidonombre11 String
+grupofamiliarapellidonombreedad String
+grupofamiliarapellidonombreedad2 String
+grupofamiliarapellidonombreedad3 String
+grupofamiliarapellidonombreedad4 String
+grupofamiliarapellidonombreedad5 String
+grupofamiliarapellidonombreedad6 String
+grupofamiliarapellidonombreedad7 String
+grupofamiliarapellidonombreedad8 String
+grupofamiliarapellidonombreedad9 String
+grupofamiliarapellidonombreedad10 String
+grupofamiliarapellidonombreedad11 String
+	grupofamiliarapellidonombredni Integer
+	grupofamiliarapellidonombredni2 Integer
+	grupofamiliarapellidonombredni3 Integer
+	grupofamiliarapellidonombredni4 Integer
+	grupofamiliarapellidonombredni5 Integer
+	grupofamiliarapellidonombredni6 Integer
+	grupofamiliarapellidonombredni7 Integer
+	grupofamiliarapellidonombredni8 Integer
+	grupofamiliarapellidonombredni9 Integer 
+	grupofamiliarapellidonombredni10 Integer
+	grupofamiliarapellidonombredni11 Integer
+	grupofamiliarapellidonombrefamiliar String
+	grupofamiliarapellidonombrefamiliar2 String
+	grupofamiliarapellidonombrefamiliar4 String
+	grupofamiliarapellidonombrefamiliar3 String
+	grupofamiliarapellidonombrefamiliar5 String
+	grupofamiliarapellidonombrefamiliar6 String
+	grupofamiliarapellidonombrefamiliar7 String
+	grupofamiliarapellidonombrefamiliar8 String
+	grupofamiliarapellidonombrefamiliar9 String
+	grupofamiliarapellidonombrefamiliar10 String
+	grupofamiliarapellidonombrefamiliar11 String
+	
+
+
+}
+
+
+
+relationship OneToMany{
+	Persona{licencia} to Licencia{persona}
+    Persona{altasAscensosBajas} to AltasAscensosBajas{persona}
+    Persona{conceptoConocimientosEspecialesClasificacionPremios} to ConceptoConocimientosEspecialesClasificacionPremios{persona}
+    Persona{embargos} to Embargos{persona}
+    Persona{garantia} to Garantia{persona}
+    Persona{otrosServiciosPrestados} to OtrosServiciosPrestados{persona}
+    Persona{penasDisciplinariasSufridas} to PenasDisciplinariasSufridas{persona}
+}
+
+entity Licencia{
+ fechaLicencia LocalDate
+referencias String
+numeroDeDias String
+observaciones String
+usuariosMod String
+ 
+}
+entity OtrosServiciosPrestados{
+fecha LocalDate
+referencias String
+}
+entity PenasDisciplinariasSufridas{
+fecha LocalDate
+expediente String
+referencias String
+}
+entity Garantia{
+presentadaFecha LocalDate
+garantia String
+observaciones String
+}
+entity AltasAscensosBajas{
+fecha LocalDate
+cargo String 
+observaciones String
+expediente String
+prestaservicioen String
+}
+entity Embargos{
+fecha LocalDate 
+juzgado String
+acreedor String 
+cantidad String
+expediente String
+fianzaODeudaPropia String
+origenDeLaDeuda String
+observaciones String
+levantada String
+}
+entity ConceptoConocimientosEspecialesClasificacionPremios{
+	fecha LocalDate
+	referencias String
+}
+paginate Persona with pagination
+paginate Licencia with pagination
+paginate ConceptoConocimientosEspecialesClasificacionPremios with pagination
+paginate Embargos with pagination
+paginate AltasAscensosBajas with pagination
+paginate PenasDisciplinariasSufridas with pagination
+paginate Garantia with pagination
+paginate OtrosServiciosPrestados with pagination
+filter Persona
+filter Licencia
+filter ConceptoConocimientosEspecialesClasificacionPremios
+filter Embargos
+filter AltasAscensosBajas
+filter PenasDisciplinariasSufridas
+filter Garantia
+filter OtrosServiciosPrestados
+service all with serviceImpl

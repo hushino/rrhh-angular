@@ -1,0 +1,24 @@
+{
+  "rrhhApp": {
+    "conceptoConocimientosEspecialesClasificacionPremios": {
+      "home": {
+        "title": "Concepto Conocimientos Especiales Clasificacion Premios",
+        "createLabel": "Crear nuevo Concepto Conocimientos Especiales Clasificacion Premios",
+        "createOrEditLabel": "Crear o editar Concepto Conocimientos Especiales Clasificacion Premios",
+        "notFound": "No Concepto Conocimientos Especiales Clasificacion Premios found"
+      },
+      "created": "Un nuevo Concepto Conocimientos Especiales Clasificacion Premios ha sido creado con el identificador {{ param }}",
+      "updated": "Un Concepto Conocimientos Especiales Clasificacion Premios ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Concepto Conocimientos Especiales Clasificacion Premios ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Concepto Conocimientos Especiales Clasificacion Premios {{ id }}?"
+      },
+      "detail": {
+        "title": "Concepto Conocimientos Especiales Clasificacion Premios"
+      },
+      "fecha": "Fecha",
+      "referencias": "Referencias",
+      "persona": "Persona"
+    }
+  }
+}

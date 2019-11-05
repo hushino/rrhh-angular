@@ -1,0 +1,32 @@
+{
+    "name": "ConceptoConocimientosEspecialesClasificacionPremios",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "referencias",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "persona",
+            "otherEntityRelationshipName": "conceptoConocimientosEspecialesClasificacionPremios",
+            "relationshipName": "persona",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191104221506",
+    "entityTableName": "concepto_conocimientos_especiales_clasificacion_premios",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,31 @@
+{
+  "rrhhApp": {
+    "embargos": {
+      "home": {
+        "title": "Embargos",
+        "createLabel": "Create a new Embargos",
+        "createOrEditLabel": "Create or edit a Embargos",
+        "notFound": "No Embargos found"
+      },
+      "created": "A new Embargos is created with identifier {{ param }}",
+      "updated": "A Embargos is updated with identifier {{ param }}",
+      "deleted": "A Embargos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Embargos {{ id }}?"
+      },
+      "detail": {
+        "title": "Embargos"
+      },
+      "fecha": "Fecha",
+      "juzgado": "Juzgado",
+      "acreedor": "Acreedor",
+      "cantidad": "Cantidad",
+      "expediente": "Expediente",
+      "fianzaODeudaPropia": "Fianza O Deuda Propia",
+      "origenDeLaDeuda": "Origen De La Deuda",
+      "observaciones": "Observaciones",
+      "levantada": "Levantada",
+      "persona": "Persona"
+    }
+  }
+}

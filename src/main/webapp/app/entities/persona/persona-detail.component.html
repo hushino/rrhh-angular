@@ -1,0 +1,472 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="persona">
+            <h2><span jhiTranslate="rrhhApp.persona.detail.title">Persona</span> {{persona.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rrhhApp.persona.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{persona.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.apellido">Apellido</span></dt>
+                <dd>
+                    <span>{{persona.apellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.cuil">Cuil</span></dt>
+                <dd>
+                    <span>{{persona.cuil}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.dni">Dni</span></dt>
+                <dd>
+                    <span>{{persona.dni}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.legajo">Legajo</span></dt>
+                <dd>
+                    <span>{{persona.legajo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.apodo">Apodo</span></dt>
+                <dd>
+                    <span>{{persona.apodo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="persona.foto">
+                        <a (click)="openFile(persona.fotoContentType, persona.foto)">
+                            <img [src]="'data:' + persona.fotoContentType + ';base64,' + persona.foto" style="max-width: 100%;" alt="persona image"/>
+                        </a>
+                        {{persona.fotoContentType}}, {{byteSize(persona.foto)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.soltero">Soltero</span></dt>
+                <dd>
+                    <span>{{persona.soltero}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.casado">Casado</span></dt>
+                <dd>
+                    <span>{{persona.casado}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.conviviente">Conviviente</span></dt>
+                <dd>
+                    <span>{{persona.conviviente}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.viudo">Viudo</span></dt>
+                <dd>
+                    <span>{{persona.viudo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.domicilio">Domicilio</span></dt>
+                <dd>
+                    <span>{{persona.domicilio}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.lugar">Lugar</span></dt>
+                <dd>
+                    <span>{{persona.lugar}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.calle">Calle</span></dt>
+                <dd>
+                    <span>{{persona.calle}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.numero">Numero</span></dt>
+                <dd>
+                    <span>{{persona.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.telefonofijo">Telefonofijo</span></dt>
+                <dd>
+                    <span>{{persona.telefonofijo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.numerodecelular">Numerodecelular</span></dt>
+                <dd>
+                    <span>{{persona.numerodecelular}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.oficioprofecion">Oficioprofecion</span></dt>
+                <dd>
+                    <span>{{persona.oficioprofecion}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.niveldeestudios">Niveldeestudios</span></dt>
+                <dd>
+                    <span>{{persona.niveldeestudios}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.gruposanguineo">Gruposanguineo</span></dt>
+                <dd>
+                    <span>{{persona.gruposanguineo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.factor">Factor</span></dt>
+                <dd>
+                    <span>{{persona.factor}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.donante">Donante</span></dt>
+                <dd>
+                    <span>{{persona.donante}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.diabetes">Diabetes</span></dt>
+                <dd>
+                    <span>{{persona.diabetes}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.hipertension">Hipertension</span></dt>
+                <dd>
+                    <span>{{persona.hipertension}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.alergias">Alergias</span></dt>
+                <dd>
+                    <span>{{persona.alergias}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.asma">Asma</span></dt>
+                <dd>
+                    <span>{{persona.asma}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.otros">Otros</span></dt>
+                <dd>
+                    <span>{{persona.otros}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.fechadeingreso">Fechadeingreso</span></dt>
+                <dd>
+                    <span>{{persona.fechadeingreso}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.instrumentolegal">Instrumentolegal</span></dt>
+                <dd>
+                    <span>{{persona.instrumentolegal}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.categoria">Categoria</span></dt>
+                <dd>
+                    <span>{{persona.categoria}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.item">Item</span></dt>
+                <dd>
+                    <span>{{persona.item}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.planta">Planta</span></dt>
+                <dd>
+                    <span>{{persona.planta}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.area">Area</span></dt>
+                <dd>
+                    <span>{{persona.area}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{persona.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.annos">Annos</span></dt>
+                <dd>
+                    <span>{{persona.annos}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.meses">Meses</span></dt>
+                <dd>
+                    <span>{{persona.meses}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.dias">Dias</span></dt>
+                <dd>
+                    <span>{{persona.dias}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.realizocomputodeservicios">Realizocomputodeservicios</span></dt>
+                <dd>
+                    <span>{{persona.realizocomputodeservicios}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.poseeconocimientoenmaquinasviales">Poseeconocimientoenmaquinasviales</span></dt>
+                <dd>
+                    <span>{{persona.poseeconocimientoenmaquinasviales}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.casoemergenciacelular">Casoemergenciacelular</span></dt>
+                <dd>
+                    <span>{{persona.casoemergenciacelular}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.casoemergenciafijo">Casoemergenciafijo</span></dt>
+                <dd>
+                    <span>{{persona.casoemergenciafijo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.casoemergencianombre">Casoemergencianombre</span></dt>
+                <dd>
+                    <span>{{persona.casoemergencianombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.casoemergenciacelular2">Casoemergenciacelular 2</span></dt>
+                <dd>
+                    <span>{{persona.casoemergenciacelular2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.casoemergenciafijo2">Casoemergenciafijo 2</span></dt>
+                <dd>
+                    <span>{{persona.casoemergenciafijo2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.casoemergencianombre2">Casoemergencianombre 2</span></dt>
+                <dd>
+                    <span>{{persona.casoemergencianombre2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargonombre">Familiaracargonombre</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargonombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargonombre2">Familiaracargonombre 2</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargonombre2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargonombre3">Familiaracargonombre 3</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargonombre3}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargonombre4">Familiaracargonombre 4</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargonombre4}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargonombre5">Familiaracargonombre 5</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargonombre5}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargodni">Familiaracargodni</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargodni}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargodni2">Familiaracargodni 2</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargodni2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargodni3">Familiaracargodni 3</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargodni3}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargodni4">Familiaracargodni 4</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargodni4}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargodni5">Familiaracargodni 5</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargodni5}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargoedad">Familiaracargoedad</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargoedad}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargoedad2">Familiaracargoedad 2</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargoedad2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargoedad3">Familiaracargoedad 3</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargoedad3}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargoedad4">Familiaracargoedad 4</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargoedad4}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.familiaracargoedad5">Familiaracargoedad 5</span></dt>
+                <dd>
+                    <span>{{persona.familiaracargoedad5}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.altura">Altura</span></dt>
+                <dd>
+                    <span>{{persona.altura}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.barrio">Barrio</span></dt>
+                <dd>
+                    <span>{{persona.barrio}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.estudiosincompletos">Estudiosincompletos</span></dt>
+                <dd>
+                    <span>{{persona.estudiosincompletos}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.conyugeapellido">Conyugeapellido</span></dt>
+                <dd>
+                    <span>{{persona.conyugeapellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.conyugenombre">Conyugenombre</span></dt>
+                <dd>
+                    <span>{{persona.conyugenombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.conyugedni">Conyugedni</span></dt>
+                <dd>
+                    <span>{{persona.conyugedni}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.conyugecuil">Conyugecuil</span></dt>
+                <dd>
+                    <span>{{persona.conyugecuil}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre">Grupofamiliarapellidonombre</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre2">Grupofamiliarapellidonombre 2</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre3">Grupofamiliarapellidonombre 3</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre3}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre4">Grupofamiliarapellidonombre 4</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre4}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre5">Grupofamiliarapellidonombre 5</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre5}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre6">Grupofamiliarapellidonombre 6</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre6}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre7">Grupofamiliarapellidonombre 7</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre7}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre8">Grupofamiliarapellidonombre 8</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre8}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre9">Grupofamiliarapellidonombre 9</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre9}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre10">Grupofamiliarapellidonombre 10</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre10}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombre11">Grupofamiliarapellidonombre 11</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombre11}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad">Grupofamiliarapellidonombreedad</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad2">Grupofamiliarapellidonombreedad 2</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad3">Grupofamiliarapellidonombreedad 3</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad3}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad4">Grupofamiliarapellidonombreedad 4</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad4}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad5">Grupofamiliarapellidonombreedad 5</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad5}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad6">Grupofamiliarapellidonombreedad 6</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad6}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad7">Grupofamiliarapellidonombreedad 7</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad7}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad8">Grupofamiliarapellidonombreedad 8</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad8}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad9">Grupofamiliarapellidonombreedad 9</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad9}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad10">Grupofamiliarapellidonombreedad 10</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad10}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombreedad11">Grupofamiliarapellidonombreedad 11</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombreedad11}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni">Grupofamiliarapellidonombredni</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni2">Grupofamiliarapellidonombredni 2</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni3">Grupofamiliarapellidonombredni 3</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni3}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni4">Grupofamiliarapellidonombredni 4</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni4}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni5">Grupofamiliarapellidonombredni 5</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni5}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni6">Grupofamiliarapellidonombredni 6</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni6}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni7">Grupofamiliarapellidonombredni 7</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni7}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni8">Grupofamiliarapellidonombredni 8</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni8}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni9">Grupofamiliarapellidonombredni 9</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni9}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni10">Grupofamiliarapellidonombredni 10</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni10}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombredni11">Grupofamiliarapellidonombredni 11</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombredni11}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar">Grupofamiliarapellidonombrefamiliar</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar2">Grupofamiliarapellidonombrefamiliar 2</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar2}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar4">Grupofamiliarapellidonombrefamiliar 4</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar4}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar3">Grupofamiliarapellidonombrefamiliar 3</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar3}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar5">Grupofamiliarapellidonombrefamiliar 5</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar5}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar6">Grupofamiliarapellidonombrefamiliar 6</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar6}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar7">Grupofamiliarapellidonombrefamiliar 7</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar7}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar8">Grupofamiliarapellidonombrefamiliar 8</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar8}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar9">Grupofamiliarapellidonombrefamiliar 9</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar9}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar10">Grupofamiliarapellidonombrefamiliar 10</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar10}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.persona.grupofamiliarapellidonombrefamiliar11">Grupofamiliarapellidonombrefamiliar 11</span></dt>
+                <dd>
+                    <span>{{persona.grupofamiliarapellidonombrefamiliar11}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/persona', persona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

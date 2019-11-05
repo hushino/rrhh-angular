@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="embargos">
+            <h2><span jhiTranslate="rrhhApp.embargos.detail.title">Embargos</span> {{embargos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rrhhApp.embargos.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{embargos.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.juzgado">Juzgado</span></dt>
+                <dd>
+                    <span>{{embargos.juzgado}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.acreedor">Acreedor</span></dt>
+                <dd>
+                    <span>{{embargos.acreedor}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.cantidad">Cantidad</span></dt>
+                <dd>
+                    <span>{{embargos.cantidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.expediente">Expediente</span></dt>
+                <dd>
+                    <span>{{embargos.expediente}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.fianzaODeudaPropia">Fianza O Deuda Propia</span></dt>
+                <dd>
+                    <span>{{embargos.fianzaODeudaPropia}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.origenDeLaDeuda">Origen De La Deuda</span></dt>
+                <dd>
+                    <span>{{embargos.origenDeLaDeuda}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.observaciones">Observaciones</span></dt>
+                <dd>
+                    <span>{{embargos.observaciones}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.levantada">Levantada</span></dt>
+                <dd>
+                    <span>{{embargos.levantada}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.embargos.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="embargos.persona">
+                        <a [routerLink]="['/persona', embargos.persona?.id, 'view']">{{embargos.persona?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/embargos', embargos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

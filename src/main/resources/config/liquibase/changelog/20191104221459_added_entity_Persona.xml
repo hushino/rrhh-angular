@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Persona.
+    -->
+    <changeSet id="20191104221459-1" author="jhipster">
+        <createTable tableName="persona">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nombre" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="apellido" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cuil" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="dni" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="legajo" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="apodo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="foto" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="foto_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="soltero" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="casado" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="conviviente" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="viudo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="domicilio" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="lugar" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="calle" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="numero" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="telefonofijo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="numerodecelular" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="oficioprofecion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="niveldeestudios" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="gruposanguineo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="factor" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="donante" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="diabetes" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hipertension" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="alergias" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="asma" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="otros" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="fechadeingreso" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="instrumentolegal" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="categoria" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="item" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="planta" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="area" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="direccion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="annos" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="meses" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="dias" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="realizocomputodeservicios" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="poseeconocimientoenmaquinasviales" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="casoemergenciacelular" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="casoemergenciafijo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="casoemergencianombre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="casoemergenciacelular_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="casoemergenciafijo_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="casoemergencianombre_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargonombre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargonombre_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargonombre_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargonombre_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargonombre_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargodni" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargodni_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargodni_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargodni_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargodni_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargoedad" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargoedad_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargoedad_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargoedad_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="familiaracargoedad_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="altura" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="barrio" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="estudiosincompletos" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="conyugeapellido" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="conyugenombre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="conyugedni" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="conyugecuil" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_6" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_7" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_8" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_9" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_10" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombre_11" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_6" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_7" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_8" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_9" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_10" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombreedad_11" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_2" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_3" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_4" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_5" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_6" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_7" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_8" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_9" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_10" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombredni_11" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_6" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_7" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_8" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_9" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_10" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="grupofamiliarapellidonombrefamiliar_11" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20191104221459-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20191104221459-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/persona.csv"
+                  separator=";"
+                  tableName="persona">
+            <column name="id" type="numeric"/>
+            <column name="nombre" type="string"/>
+            <column name="apellido" type="string"/>
+            <column name="cuil" type="string"/>
+            <column name="dni" type="numeric"/>
+            <column name="legajo" type="numeric"/>
+            <column name="apodo" type="string"/>
+            <column name="foto" type="blob"/>
+            <column name="foto_content_type" type="string"/>
+            <column name="soltero" type="string"/>
+            <column name="casado" type="string"/>
+            <column name="conviviente" type="string"/>
+            <column name="viudo" type="string"/>
+            <column name="domicilio" type="string"/>
+            <column name="lugar" type="string"/>
+            <column name="calle" type="string"/>
+            <column name="numero" type="string"/>
+            <column name="telefonofijo" type="string"/>
+            <column name="numerodecelular" type="string"/>
+            <column name="oficioprofecion" type="string"/>
+            <column name="niveldeestudios" type="string"/>
+            <column name="gruposanguineo" type="string"/>
+            <column name="factor" type="string"/>
+            <column name="donante" type="string"/>
+            <column name="diabetes" type="string"/>
+            <column name="hipertension" type="string"/>
+            <column name="alergias" type="string"/>
+            <column name="asma" type="string"/>
+            <column name="otros" type="string"/>
+            <column name="fechadeingreso" type="date"/>
+            <column name="instrumentolegal" type="string"/>
+            <column name="categoria" type="string"/>
+            <column name="item" type="string"/>
+            <column name="planta" type="string"/>
+            <column name="area" type="string"/>
+            <column name="direccion" type="string"/>
+            <column name="annos" type="numeric"/>
+            <column name="meses" type="numeric"/>
+            <column name="dias" type="numeric"/>
+            <column name="realizocomputodeservicios" type="string"/>
+            <column name="poseeconocimientoenmaquinasviales" type="string"/>
+            <column name="casoemergenciacelular" type="string"/>
+            <column name="casoemergenciafijo" type="string"/>
+            <column name="casoemergencianombre" type="string"/>
+            <column name="casoemergenciacelular_2" type="string"/>
+            <column name="casoemergenciafijo_2" type="string"/>
+            <column name="casoemergencianombre_2" type="string"/>
+            <column name="familiaracargonombre" type="string"/>
+            <column name="familiaracargonombre_2" type="string"/>
+            <column name="familiaracargonombre_3" type="string"/>
+            <column name="familiaracargonombre_4" type="string"/>
+            <column name="familiaracargonombre_5" type="string"/>
+            <column name="familiaracargodni" type="string"/>
+            <column name="familiaracargodni_2" type="string"/>
+            <column name="familiaracargodni_3" type="string"/>
+            <column name="familiaracargodni_4" type="string"/>
+            <column name="familiaracargodni_5" type="string"/>
+            <column name="familiaracargoedad" type="string"/>
+            <column name="familiaracargoedad_2" type="string"/>
+            <column name="familiaracargoedad_3" type="string"/>
+            <column name="familiaracargoedad_4" type="string"/>
+            <column name="familiaracargoedad_5" type="string"/>
+            <column name="altura" type="string"/>
+            <column name="barrio" type="string"/>
+            <column name="estudiosincompletos" type="string"/>
+            <column name="conyugeapellido" type="string"/>
+            <column name="conyugenombre" type="string"/>
+            <column name="conyugedni" type="numeric"/>
+            <column name="conyugecuil" type="string"/>
+            <column name="grupofamiliarapellidonombre" type="string"/>
+            <column name="grupofamiliarapellidonombre_2" type="string"/>
+            <column name="grupofamiliarapellidonombre_3" type="string"/>
+            <column name="grupofamiliarapellidonombre_4" type="string"/>
+            <column name="grupofamiliarapellidonombre_5" type="string"/>
+            <column name="grupofamiliarapellidonombre_6" type="string"/>
+            <column name="grupofamiliarapellidonombre_7" type="string"/>
+            <column name="grupofamiliarapellidonombre_8" type="string"/>
+            <column name="grupofamiliarapellidonombre_9" type="string"/>
+            <column name="grupofamiliarapellidonombre_10" type="string"/>
+            <column name="grupofamiliarapellidonombre_11" type="string"/>
+            <column name="grupofamiliarapellidonombreedad" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_2" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_3" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_4" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_5" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_6" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_7" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_8" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_9" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_10" type="string"/>
+            <column name="grupofamiliarapellidonombreedad_11" type="string"/>
+            <column name="grupofamiliarapellidonombredni" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_2" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_3" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_4" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_5" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_6" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_7" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_8" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_9" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_10" type="numeric"/>
+            <column name="grupofamiliarapellidonombredni_11" type="numeric"/>
+            <column name="grupofamiliarapellidonombrefamiliar" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_2" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_4" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_3" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_5" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_6" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_7" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_8" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_9" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_10" type="string"/>
+            <column name="grupofamiliarapellidonombrefamiliar_11" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,519 @@
+{
+    "name": "Persona",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "apellido",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cuil",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dni",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "legajo",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "apodo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "soltero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "conviviente",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "viudo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "domicilio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lugar",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "calle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefonofijo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numerodecelular",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "oficioprofecion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "niveldeestudios",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gruposanguineo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "factor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "donante",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diabetes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hipertension",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alergias",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "asma",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "otros",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechadeingreso",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "instrumentolegal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "categoria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "item",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "planta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "area",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "annos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "meses",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dias",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "realizocomputodeservicios",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "poseeconocimientoenmaquinasviales",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casoemergenciacelular",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casoemergenciafijo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casoemergencianombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casoemergenciacelular2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casoemergenciafijo2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "casoemergencianombre2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargonombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargonombre2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargonombre3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargonombre4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargonombre5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargodni",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargodni2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargodni3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargodni4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargodni5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargoedad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargoedad2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargoedad3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargoedad4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaracargoedad5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "altura",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "barrio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estudiosincompletos",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "conyugeapellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "conyugenombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "conyugedni",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "conyugecuil",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre6",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre7",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre8",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre9",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre10",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombre11",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad6",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad7",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad8",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad9",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad10",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombreedad11",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni3",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni4",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni5",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni6",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni7",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni8",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni9",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni10",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombredni11",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar6",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar7",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar8",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar9",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar10",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupofamiliarapellidonombrefamiliar11",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "licencia",
+            "otherEntityRelationshipName": "persona",
+            "relationshipName": "licencia"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "altasAscensosBajas",
+            "otherEntityRelationshipName": "persona",
+            "relationshipName": "altasAscensosBajas"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "conceptoConocimientosEspecialesClasificacionPremios",
+            "otherEntityRelationshipName": "persona",
+            "relationshipName": "conceptoConocimientosEspecialesClasificacionPremios"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "embargos",
+            "otherEntityRelationshipName": "persona",
+            "relationshipName": "embargos"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "garantia",
+            "otherEntityRelationshipName": "persona",
+            "relationshipName": "garantia"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "otrosServiciosPrestados",
+            "otherEntityRelationshipName": "persona",
+            "relationshipName": "otrosServiciosPrestados"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "penasDisciplinariasSufridas",
+            "otherEntityRelationshipName": "persona",
+            "relationshipName": "penasDisciplinariasSufridas"
+        }
+    ],
+    "changelogDate": "20191104221459",
+    "entityTableName": "persona",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

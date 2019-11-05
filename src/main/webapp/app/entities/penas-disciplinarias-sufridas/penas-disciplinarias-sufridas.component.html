@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="rrhhApp.penasDisciplinariasSufridas.home.title">Penas Disciplinarias Sufridas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-penas-disciplinarias-sufridas" [routerLink]="['/penas-disciplinarias-sufridas/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="rrhhApp.penasDisciplinariasSufridas.home.createLabel">
+            Create a new Penas Disciplinarias Sufridas
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="penasDisciplinariasSufridas?.length === 0">
+        <span jhiTranslate="rrhhApp.penasDisciplinariasSufridas.home.notFound">No penasDisciplinariasSufridas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="penasDisciplinariasSufridas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="rrhhApp.penasDisciplinariasSufridas.fecha">Fecha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="expediente"><span jhiTranslate="rrhhApp.penasDisciplinariasSufridas.expediente">Expediente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="referencias"><span jhiTranslate="rrhhApp.penasDisciplinariasSufridas.referencias">Referencias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="persona.id"><span jhiTranslate="rrhhApp.penasDisciplinariasSufridas.persona">Persona</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let penasDisciplinariasSufridas of penasDisciplinariasSufridas ;trackBy: trackId">
+                <td><a [routerLink]="['/penas-disciplinarias-sufridas', penasDisciplinariasSufridas.id, 'view' ]">{{penasDisciplinariasSufridas.id}}</a></td>
+                <td>{{penasDisciplinariasSufridas.fecha | date:'mediumDate'}}</td>
+                <td>{{penasDisciplinariasSufridas.expediente}}</td>
+                <td>{{penasDisciplinariasSufridas.referencias}}</td>
+                <td>
+                    <div *ngIf="penasDisciplinariasSufridas.persona">
+                        <a [routerLink]="['/persona', penasDisciplinariasSufridas.persona?.id, 'view' ]" >{{penasDisciplinariasSufridas.persona?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/penas-disciplinarias-sufridas', penasDisciplinariasSufridas.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/penas-disciplinarias-sufridas', penasDisciplinariasSufridas.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/penas-disciplinarias-sufridas', { outlets: { popup: penasDisciplinariasSufridas.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="penasDisciplinariasSufridas?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

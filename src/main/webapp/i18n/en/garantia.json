@@ -1,0 +1,25 @@
+{
+  "rrhhApp": {
+    "garantia": {
+      "home": {
+        "title": "Garantias",
+        "createLabel": "Create a new Garantia",
+        "createOrEditLabel": "Create or edit a Garantia",
+        "notFound": "No Garantias found"
+      },
+      "created": "A new Garantia is created with identifier {{ param }}",
+      "updated": "A Garantia is updated with identifier {{ param }}",
+      "deleted": "A Garantia is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Garantia {{ id }}?"
+      },
+      "detail": {
+        "title": "Garantia"
+      },
+      "presentadaFecha": "Presentada Fecha",
+      "garantia": "Garantia",
+      "observaciones": "Observaciones",
+      "persona": "Persona"
+    }
+  }
+}

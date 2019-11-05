@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="licencia">
+            <h2><span jhiTranslate="rrhhApp.licencia.detail.title">Licencia</span> {{licencia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rrhhApp.licencia.fechaLicencia">Fecha Licencia</span></dt>
+                <dd>
+                    <span>{{licencia.fechaLicencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.licencia.referencias">Referencias</span></dt>
+                <dd>
+                    <span>{{licencia.referencias}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.licencia.numeroDeDias">Numero De Dias</span></dt>
+                <dd>
+                    <span>{{licencia.numeroDeDias}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.licencia.observaciones">Observaciones</span></dt>
+                <dd>
+                    <span>{{licencia.observaciones}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.licencia.usuariosMod">Usuarios Mod</span></dt>
+                <dd>
+                    <span>{{licencia.usuariosMod}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.licencia.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="licencia.persona">
+                        <a [routerLink]="['/persona', licencia.persona?.id, 'view']">{{licencia.persona?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/licencia', licencia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

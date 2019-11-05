@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="altasAscensosBajas">
+            <h2><span jhiTranslate="rrhhApp.altasAscensosBajas.detail.title">Altas Ascensos Bajas</span> {{altasAscensosBajas.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rrhhApp.altasAscensosBajas.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{altasAscensosBajas.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.altasAscensosBajas.cargo">Cargo</span></dt>
+                <dd>
+                    <span>{{altasAscensosBajas.cargo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.altasAscensosBajas.observaciones">Observaciones</span></dt>
+                <dd>
+                    <span>{{altasAscensosBajas.observaciones}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.altasAscensosBajas.expediente">Expediente</span></dt>
+                <dd>
+                    <span>{{altasAscensosBajas.expediente}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.altasAscensosBajas.prestaservicioen">Prestaservicioen</span></dt>
+                <dd>
+                    <span>{{altasAscensosBajas.prestaservicioen}}</span>
+                </dd>
+                <dt><span jhiTranslate="rrhhApp.altasAscensosBajas.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="altasAscensosBajas.persona">
+                        <a [routerLink]="['/persona', altasAscensosBajas.persona?.id, 'view']">{{altasAscensosBajas.persona?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/altas-ascensos-bajas', altasAscensosBajas.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
