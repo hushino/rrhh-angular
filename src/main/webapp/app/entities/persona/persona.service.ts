@@ -45,22 +45,22 @@ export class PersonaService {
   }
 
 
-  search(terms: Observable<string>) {
+/*   search(terms: Observable<string>) {
     return terms
       .distinctUntilChanged()
       .switchMap(term => this.searchEntries(term));
-  }
+  } */
 
   /* searchEntries(term) {
     return this.http
       .get<IPersona>(`${this.resourceUrl}?dni.equals=${term}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   } */
-  searchEntries(term) {
+ /*  searchEntries(term) {
     return this.http
       .get(`${this.resourceUrl}?nombre.equals=${term}`)
       .map(res => res.toString());
-  }
+  } */
 
 
   /* 

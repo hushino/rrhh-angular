@@ -51,13 +51,13 @@ export class PersonaComponent implements OnInit, OnDestroy {
   results: any;
   searchTerm$ = new Subject<string>();
 
-  metodo(event: string) {
+  /* metodo(event: string) {
     this.searchTerm$.next(event.toString())
     this.personaService.search(this.searchTerm$)
       .subscribe(results => {
         this.results = results;
       });
-  }
+  } */
   /* 
     public model: any;
     persona: any;
